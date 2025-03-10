@@ -3,83 +3,657 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senait M. Dawede</title>
+    <title>Senait M. Dawede | Urban Designer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary-color: #3a6ea5;
+            --secondary-color: #c0d6df;
+            --accent-color: #ff6b6b;
+            --text-color: #333;
+            --light-text: #666;
+            --background: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2, h3 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-        h1 {
-            font-size: 2em;
-        }
-        h2 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 5px;
-        }
-        p {
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            color: var(--text-color);
+            background-color: var(--background);
             line-height: 1.6;
         }
-        .section {
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+            background-color: var(--white);
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .header-content {
+            flex: 1;
+            padding: 0 40px;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            margin-right: 40px;
+            object-fit: cover;
+            border: 5px solid var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: var(--light-text);
             margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 50px 0;
+        }
+
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+
+        /* About Section */
+        .about-content {
+            line-height: 1.8;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 30px;
+        }
+
+        .experience-item h3 {
+            font-size: 1.3rem;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .experience-date {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Education Section */
+        .education-item {
+            margin-bottom: 30px;
+        }
+
+        .education-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .education-date {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill-category {
+            margin-bottom: 20px;
+            flex: 1 0 45%;
+        }
+
+        .skill-category h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .skill-item {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Portfolio Section */
+        .portfolio-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(58, 110, 165, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay h3 {
+            color: var (--white);
+            margin-bottom: 10px;
+        }
+
+        .portfolio-overlay p {
+            color: var(--white);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-btn {
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .portfolio-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        /* References Section */
+        .references-note {
+            font-style: italic;
+            color: var(--light-text);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .footer-links li {
+            margin: 0 15px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 992px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+            }
+
+            .profile-img {
+                margin: 0 0 30px 0;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .skills-container {
+                flex-direction: column;
+            }
+
+            .portfolio-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Senait M. Dawede</h1>
-        <p><strong>Email:</strong> senaitm06@gmail.com | <strong>Phone:</strong> +47 489 22 767</p>
-        <p><strong>Address:</strong> Tors Veg 38A, Trondheim, Norway</p>
-
-        <div class="section">
-            <h2>Profile</h2>
-            <p>I am an urban designer with a minor in Architecture. I have a BSc in Urban and Regional Planning and an MSc in Urban design and development from Addis Ababa University. I have been working as a lecturer in the department of Architecture and Urban design at Addis Ababa Science and Technology University. I have more than 10 years of experience in teaching at the university. In those years, I have been involved in teaching, learning activities, and different academic leadership positions. In addition to that, I was working on urban and landscape design as well as facade and interior design projects and consulting with external offices. I have developed different skills of softwares like AutoCAD, ArcGIS, ArchiCAD, Sketchup, Adobe Illustrator and MS Office.</p>
-        </div>
-
-        <div class="section">
-            <h2>Experience</h2>
-            <h3>Lecturer with leadership Position - Addis Ababa Science and Technology University</h3>
-            <p><em>August 2015 - August 2022</em></p>
-            <p>Teaching various courses in urban planning and design, Assistant Dean for Academic Affairs at the College of Architecture and Civil Engineering, paricipate in different consulting projects including neighborhood and landscape design as well as facade and interior design.</p>
-
-            <h3>Previous Assistant Lecturer - Addis Ababa Science and Technology University</h3>
-            <p><em>August 2012 - August 2015</em></p>
-            <p>Assist various urban planning and design courses.</p>
-        </div>
-
-        <div class="section">
-            <h2>Education</h2>
-            <h3>Master of Science in Urban Design and Development - Addis Ababa University</h3>
-            <p><em>July,2015</em></p>
-            <p>Sustainable urban design, urban design theory, urban housing, history of urban forms, function and mobility system, urban economics, urban politics and planning laws, urban governance and public finance..</p>
-        </div>
-
-        <div class="section">
-            <h2>Skills</h2>
-            <ul>
-                <li>Computer skills including AutoCAD, ArcGIS, ArchiCAD, Adobe Illustrator, SketchUp, MS Office </li>
-                <li>lecturing skill </li>
-                <li>Leadership and project management skill </li>
-                <li>Teamwork </li>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">Senait Dawede</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#references">References</a></li>
             </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <img src="https://via.placeholder.com/200" alt="Profile Photo" class="profile-img">
+            <div class="header-content">
+                <h1>Senait M. Dawede</h1>
+                <p>Urban Designer & Architecture Specialist</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>senaitm06@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+47 489 22 767</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Tors Veg 38A, Trondheim, Norway</span>
+                    </div>
+                </div>
+                <div class="social-icons">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
         </div>
 
-        <div class="section">
-            <h2>References</h2>
-            <p>Available upon request.</p>
-        </div>
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="section-heading">About Me</h2>
+            <div class="card about-content">
+                <p>I am an urban designer with a minor in Architecture. I have a BSc in Urban and Regional Planning and an MSc in Urban design and development from Addis Ababa University. I have been working as a lecturer in the department of Architecture and Urban design at Addis Ababa Science and Technology University. I have more than 10 years of experience in teaching at the university. In those years, I have been involved in teaching, learning activities, and different academic leadership positions. In addition to that, I was working on urban and landscape design as well as facade and interior design projects and consulting with external offices. I have developed different skills of softwares like AutoCAD, ArcGIS, ArchiCAD, Sketchup, Adobe Illustrator and MS Office.</p>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2 class="section-heading">Experience</h2>
+            <div class="card">
+                <div class="experience-item">
+                    <h3>Lecturer with Leadership Position</h3>
+                    <span class="experience-date">August 2015 - August 2022 | Addis Ababa Science and Technology University</span>
+                    <p>Teaching various courses in urban planning and design, Assistant Dean for Academic Affairs at the College of Architecture and Civil Engineering, participating in different consulting projects including neighborhood and landscape design as well as facade and interior design.</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Assistant Lecturer</h3>
+                    <span class="experience-date">August 2012 - August 2015 | Addis Ababa Science and Technology University</span>
+                    <p>Assist various urban planning and design courses.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2 class="section-heading">Education</h2>
+            <div class="card">
+                <div class="education-item">
+                    <h3>Master of Science in Urban Design and Development</h3>
+                    <span class="education-date">July 2015 | Addis Ababa University</span>
+                    <p>Sustainable urban design, urban design theory, urban housing, history of urban forms, function and mobility system, urban economics, urban politics and planning laws, urban governance and public finance.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-heading">Skills</h2>
+            <div class="card">
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Software Skills</h3>
+                        <span class="skill-item">AutoCAD</span>
+                        <span class="skill-item">ArcGIS</span>
+                        <span class="skill-item">ArchiCAD</span>
+                        <span class="skill-item">Adobe Illustrator</span>
+                        <span class="skill-item">SketchUp</span>
+                        <span class="skill-item">MS Office</span>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Professional Skills</h3>
+                        <span class="skill-item">Urban Design</span>
+                        <span class="skill-item">Architecture</span>
+                        <span class="skill-item">Landscape Design</span>
+                        <span class="skill-item">Lecturing</span>
+                        <span class="skill-item">Leadership</span>
+                        <span class="skill-item">Project Management</span>
+                        <span class="skill-item">Teamwork</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio">
+            <h2 class="section-heading">Portfolio</h2>
+            <div class="portfolio-container">
+                <!-- ArcGIS Project 1 -->
+                <div class="card portfolio-item">
+                    <img src="https://via.placeholder.com/400x300?text=ArcGIS+Project+1" alt="ArcGIS Project 1" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Urban Mapping Project</h3>
+                        <p>A comprehensive mapping project using ArcGIS for urban analysis and planning.</p>
+                        <button class="portfolio-btn">View Project</button>
+                    </div>
+                </div>
+                
+                <!-- ArcGIS Project 2 -->
+                <div class="card portfolio-item">
+                    <img src="https://via.placeholder.com/400x300?text=ArcGIS+Project+2" alt="ArcGIS Project 2" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Landscape Analysis</h3>
+                        <p>Spatial analysis of urban landscapes using GIS technologies.</p>
+                        <button class="portfolio-btn">View Project</button>
+                    </div>
+                </div>
+                
+                <!-- ArcGIS Project 3 -->
+                <div class="card portfolio-item">
+                    <img src="https://via.placeholder.com/400x300?text=ArcGIS+Project+3" alt="ArcGIS Project 3" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Urban Development Plan</h3>
+                        <p>Comprehensive urban development plan created with ArcGIS and other tools.</p>
+                        <button class="portfolio-btn">View Project</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- References Section -->
+        <section id="references">
+            <h2 class="section-heading">References</h2>
+            <div class="card">
+                <p class="references-note">Available upon request.</p>
+            </div>
+        </section>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <p class="copyright">© 2023 Senait M. Dawede. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('show');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
