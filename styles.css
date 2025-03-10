@@ -338,6 +338,8 @@ section {
     margin-bottom: 15px;
 }
 
+/* Update the portfolio button style to handle <a> tags */
+
 .portfolio-btn {
     background-color: var(--white);
     color: var(--primary-color);
@@ -347,6 +349,8 @@ section {
     cursor: pointer;
     font-weight: 500;
     transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
 }
 
 .portfolio-btn:hover {
