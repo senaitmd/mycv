@@ -1,0 +1,457 @@
+:root {
+    --primary-color: #3a6ea5;
+    --secondary-color: #c0d6df;
+    --accent-color: #ff6b6b;
+    --text-color: #333;
+    --light-text: #666;
+    --background: #f8f9fa;
+    --white: #ffffff;
+    --shadow: 0 5px 15px rgba(0,0,0,0.08);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+nav {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+    background-color: var(--white);
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.header-content {
+    flex: 1;
+    padding: 0 40px;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    margin-right: 40px;
+    object-fit: cover;
+    border: 5px solid var(--white);
+    box-shadow: var(--shadow);
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.header p {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-item i {
+    color: var(--primary-color);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+/* Section Styles */
+section {
+    padding: 50px 0;
+}
+
+.section-heading {
+    position: relative;
+    display: inline-block;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.card {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+/* About Section */
+.about-content {
+    line-height: 1.8;
+}
+
+/* Experience Section */
+.experience-item {
+    margin-bottom: 30px;
+}
+
+.experience-item h3 {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.experience-date {
+    color: var(--accent-color);
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Education Section */
+.education-item {
+    margin-bottom: 30px;
+}
+
+.education-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.education-date {
+    color: var(--accent-color);
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Skills Section */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skill-category {
+    margin-bottom: 20px;
+    flex: 1 0 45%;
+}
+
+.skill-category h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.skill-item {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin: 5px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.skill-item:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Portfolio Section */
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.portfolio-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 250px;
+}
+
+.portfolio-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(58, 110, 165, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: var(--transition);
+    padding: 20px;
+    text-align: center;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-item:hover .portfolio-img {
+    transform: scale(1.1);
+}
+
+.portfolio-overlay h3 {
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.portfolio-overlay p {
+    color: var(--white);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.portfolio-btn {
+    background-color: var(--white);
+    color: var(--primary-color);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.portfolio-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+/* References Section */
+.references-note {
+    font-style: italic;
+    color: var(--light-text);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 20px 0;
+}
+
+.footer-links li {
+    margin: 0 15px;
+}
+
+.footer-links a {
+    color: var(--white);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--secondary-color);
+}
+
+.copyright {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 992px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .profile-img {
+        margin: 0 0 30px 0;
+    }
+
+    .contact-info {
+        justify-content: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .skills-container {
+        flex-direction: column;
+    }
+
+    .portfolio-container {
+        grid-template-columns: 1fr;
+    }
+}
