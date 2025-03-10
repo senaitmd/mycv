@@ -58,6 +58,23 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
+/* Update container styles */
+.container {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Update content container for text elements */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
 .container {
     max-width: 1400px;
     margin: 0 auto;
@@ -112,7 +129,7 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(135deg, var(--background-alt) 25%, transparent 25%) -50px 0,
                 linear-gradient(225deg, var(--background-alt) 25%, transparent 25%) -50px 0,
                 linear-gradient(315deg, var(--background-alt) 25%, var(--background) 25%),
-                linear-gradient(45deg, var(--background-alt) 25%, var(--background) 25%);
+                linear-gradient(45deg, var(--background-alt) 25%, var (--background) 25%);
     background-size: 100px 100px;
     z-index: 0;
 }
@@ -313,9 +330,10 @@ nav {
 
 /* Section Styles with modern backgrounds */
 section {
+    width: 100vw;
     padding: 120px 0;
-    position: relative;
     margin: 0;
+    position: relative;
     overflow: hidden;
 }
 
@@ -368,7 +386,7 @@ section:nth-child(even) {
 
 /* About Section */
 #about {
-    background: linear-gradient(180deg, transparent, rgba(103, 216, 195, 0.1));
+    background: linear-gradient(135deg, #f0f4fb 0%, #e0e8f5 100%);
 }
 
 #about::after {
@@ -390,7 +408,7 @@ section:nth-child(even) {
 
 /* Experience Section */
 #experience {
-    background: linear-gradient(180deg, transparent, rgba(74, 111, 165, 0.1));
+    background: linear-gradient(-45deg, rgba(255, 107, 136, 0.1) 0%, rgba(74, 111, 165, 0.1) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -432,7 +450,7 @@ section:nth-child(even) {
 
 /* Education Section */
 #education {
-    background: linear-gradient(180deg, transparent, rgba(255, 107, 136, 0.1));
+    background: linear-gradient(45deg, rgba(103, 216, 195, 0.1) 0%, rgba(74, 111, 165, 0.15) 100%);
 }
 
 #education::after {
@@ -472,7 +490,7 @@ section:nth-child(even) {
 
 /* Skills Section */
 #skills {
-    background: linear-gradient(180deg, transparent, rgba(103, 216, 195, 0.15));
+    background: linear-gradient(135deg, rgba(103, 216, 195, 0.15) 0%, rgba(255, 255, 255, 0.5) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -542,7 +560,7 @@ section:nth-child(even) {
 
 /* Portfolio Section */
 #portfolio {
-    background: linear-gradient(180deg, transparent, rgba(255, 107, 136, 0.1));
+    background: linear-gradient(-45deg, rgba(74, 111, 165, 0.1) 0%, rgba(103, 216, 195, 0.15) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -848,4 +866,76 @@ section + section {
     background: transparent;
     box-shadow: none;
     border: none;
+}
+
+/* Wave separators */
+.wave-divider {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    pointer-events: none;
+    margin: 0;
+}
+
+.wave-top {
+    top: 0;
+    transform: translateY(-99%);
+}
+
+.wave-bottom {
+    bottom: 0;
+    transform: translateY(99%);
+}
+
+/* Remove card styles and update content blocks */
+.content-block {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 1000px;
+}
+
+/* Update wave SVG patterns */
+.section-divider {
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.section-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+    transform: rotateY(180deg);
+}
+
+/* Floating gradient orbs */
+.gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.orb-1 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(103, 216, 195, 0.2) 0%, rgba(103, 216, 195, 0) 70%);
+    top: -150px;
+    right: -150px;
+}
+
+.orb-2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 107, 136, 0.2) 0%, rgba(255, 107, 136, 0) 70%);
+    bottom: -200px;
+    left: -200px;
 }
