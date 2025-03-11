@@ -1,0 +1,33 @@
+/* Base styles for typography and general elements */
+body {
+    font-family: var(--body-font);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 0.5em;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: var(--section-padding);
+}
+
+a {
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color);
+}

@@ -1,0 +1,27 @@
+/* Define CSS variables for consistent styling */
+:root {
+    /* Color palette */
+    --primary-color: #2563eb; /* Indigo-500 */
+    --primary-light: #60a5fa; /* Indigo-300 */
+    --primary-dark: #1e40af; /* Indigo-700 */
+    --secondary-color: #ea580c; /* Orange-500 */
+    --secondary-light: #f97316; /* Orange-400 */
+    --secondary-dark: #c2410c; /* Orange-700 */
+    --accent-color: #10b981; /* Emerald-500 */
+    --text-color: #334155; /* Slate-700 */
+    --text-light: #64748b; /* Slate-500 */
+    --background: #f8fafc; /* Slate-50 */
+    --background-alt: #f1f5f9; /* Slate-100 */
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --transition: all 0.3s ease-in-out;
+
+    /* Font families */
+    --heading-font: 'Roboto', sans-serif;
+    --body-font: 'Open Sans', sans-serif;
+
+    /* Spacing */
+    --section-padding: 6rem 0;
+    --card-padding: 2rem;
+    --border-radius: 0.5rem;
+}

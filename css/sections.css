@@ -1,0 +1,11 @@
+/* General section styles */
+section {
+    padding: var(--section-padding);
+}
+
+.section-heading {
+    font-size: 2rem;
+    color: var(--primary-dark);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
