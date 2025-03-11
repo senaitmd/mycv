@@ -4,6 +4,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background);
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -11,17 +12,40 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     color: var(--primary-dark);
     margin-bottom: 0.5em;
+    line-height: 1.2;
 }
 
-.container {
+/* Content wrapper - more compact */
+.content-wrapper {
     width: 100%;
-    max-width: 1200px;
+    max-width: var(--content-width);
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 var(--content-padding);
 }
 
 section {
-    padding: var(--section-padding);
+    padding: var(--section-padding-sm) 0;
+    position: relative;
+    margin: 0; /* Remove section margins */
+}
+
+/* Modern gradient background for sections */
+section:nth-child(odd) {
+    background: linear-gradient(to bottom right, var(--background), var(--background-alt));
+}
+
+section:nth-child(even) {
+    background: var(--background);
+}
+
+/* Remove unwanted waves and dividers */
+.section-divider {
+    display: none;
+}
+
+/* Hide excessive gradient orbs */
+.gradient-orb {
+    display: none;
 }
 
 a {
@@ -30,4 +54,24 @@ a {
 
 a:hover {
     color: var(--primary-color);
+}
+
+/* More refined transitions */
+button, a {
+    transition: all 0.2s ease-out;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Subtle animations for interactive elements */
+button:hover, a:hover {
+    transform: translateY(-2px);
+}
+
+/* Maintain language handling styles */
+.lang-no {
+    display: none;
 }

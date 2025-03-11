@@ -1,27 +1,33 @@
 /* Define CSS variables for consistent styling */
 :root {
-    /* Color palette */
-    --primary-color: #2563eb; /* Indigo-500 */
-    --primary-light: #60a5fa; /* Indigo-300 */
-    --primary-dark: #1e40af; /* Indigo-700 */
-    --secondary-color: #ea580c; /* Orange-500 */
-    --secondary-light: #f97316; /* Orange-400 */
-    --secondary-dark: #c2410c; /* Orange-700 */
+    /* Color palette - more vibrant and modern */
+    --primary-color: #4f46e5; /* Indigo-600 - more vibrant */
+    --primary-light: #818cf8; /* Indigo-400 - softer */
+    --primary-dark: #4338ca; /* Indigo-700 - deeper */
+    --secondary-color: #f59e0b; /* Amber-500 - warmer orange */
+    --secondary-light: #fbbf24; /* Amber-400 - brighter */
+    --secondary-dark: #d97706; /* Amber-600 - deeper */
     --accent-color: #10b981; /* Emerald-500 */
-    --text-color: #334155; /* Slate-700 */
-    --text-light: #64748b; /* Slate-500 */
-    --background: #f8fafc; /* Slate-50 */
-    --background-alt: #f1f5f9; /* Slate-100 */
+    --text-color: #1f2937; /* Gray-800 - darker for better contrast */
+    --text-light: #4b5563; /* Gray-600 - better readability */
+    --background: #ffffff; /* Pure white background */
+    --background-alt: #f9fafb; /* Gray-50 - subtle contrast */
     --white: #ffffff;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease-in-out;
 
-    /* Font families */
-    --heading-font: 'Roboto', sans-serif;
-    --body-font: 'Open Sans', sans-serif;
+    /* Font families - use the existing ones from your HTML */
+    --heading-font: 'Quicksand', sans-serif;
+    --body-font: 'Nunito', sans-serif;
 
-    /* Spacing */
-    --section-padding: 6rem 0;
-    --card-padding: 2rem;
-    --border-radius: 0.5rem;
+    /* Spacing - reduced to make design more compact */
+    --section-padding: 4rem 0;
+    --section-padding-sm: 2rem 0;
+    --card-padding: 1.5rem;
+    --border-radius: 0.75rem;
+    
+    /* Content width */
+    --content-width: 1140px;
+    --content-padding: 1.5rem;
 }

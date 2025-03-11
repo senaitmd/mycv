@@ -2,7 +2,23 @@
 .card {
     background-color: var(--white);
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-sm);
     padding: var(--card-padding);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-3px);
+}
+
+/* Add some breathing room inside cards */
+.card p {
+    margin-bottom: 1rem;
+}
+
+.card p:last-child {
+    margin-bottom: 0;
 }
