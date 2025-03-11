@@ -345,9 +345,60 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('show');
+        // Mobile menu toggle with improved touch support
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            // Function to toggle menu
+            function toggleMobileMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                navLinks.classList.toggle('show');
+            }
+            
+            // Add both click and touch events to the menu button
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            mobileMenuBtn.addEventListener('touchend', toggleMobileMenu);
+            
+            // Close menu when clicking/touching a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('show');
+                });
+                link.addEventListener('touchend', function(event) {
+                    event.preventDefault();
+                    navLinks.classList.remove('show');
+                    // Navigate to the href location
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        document.querySelector(href).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        window.location.href = href;
+                    }
+                });
+            });
+            
+            // Close menu when clicking/touching outside
+            document.addEventListener('click', function(event) {
+                const isClickInsideMenu = navLinks.contains(event.target);
+                const isClickOnMenuButton = mobileMenuBtn.contains(event.target);
+                
+                if (!isClickInsideMenu && !isClickOnMenuButton && navLinks.classList.contains('show')) {
+                    navLinks.classList.remove('show');
+                }
+            });
+            
+            document.addEventListener('touchend', function(event) {
+                const isInsideMenu = navLinks.contains(event.target);
+                const isOnMenuButton = mobileMenuBtn.contains(event.target);
+                
+                if (!isInsideMenu && !isOnMenuButton && navLinks.classList.contains('show')) {
+                    navLinks.classList.remove('show');
+                }
+            });
         });
 
         // Smooth scrolling for navigation links
@@ -414,34 +465,8 @@
             }
         });
 
-        // Enhanced mobile menu functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const navLinks = document.querySelector('.nav-links');
-            
-            mobileMenuBtn.addEventListener('click', function() {
-                navLinks.classList.toggle('show');
-            });
-            
-            // Close menu when clicking on a link
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.classList.remove('show');
-                });
-            });
-            
-            // Close menu when clicking outside
-            document.addEventListener('click', function(event) {
-                const isClickInsideMenu = navLinks.contains(event.target);
-                const isClickOnMenuButton = mobileMenuBtn.contains(event.target);
-                
-                if (!isClickInsideMenu && !isClickOnMenuButton && navLinks.classList.contains('show')) {
-                    navLinks.classList.remove('show');
-                }
-            });
-            
-            // Existing language switcher code...
-        });
+        // Remove redundant mobile menu code
+        // The mobile menu functionality is now consolidated above
     </script>
 
     <style>
@@ -922,6 +947,99 @@
             .education-date,
             .experience-date {
                 font-size: 0.95rem;
+            }
+        }
+
+        /* Enhanced mobile menu styles */
+        .mobile-menu-btn {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            padding: 8px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+        }
+        
+        .mobile-menu-btn:hover, .mobile-menu-btn:active {
+            background-color: rgba(0,0,0,0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+                z-index: 101; /* Ensure it's above other elements */
+            }
+            
+            .nav-links {
+                display: none;
+                position: fixed; /* Change to fixed for better mobile experience */
+                top: 60px;
+                left: 0;
+                width: 100%;
+                height: auto;
+                max-height: 80vh; /* Limit height and enable scrolling if needed */
+                overflow-y: auto;
+                background: var(--background-color, #ffffff); /* Ensure solid background */
+                flex-direction: column;
+                padding: 0;
+                margin: 0;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                z-index: 100;
+                transition: transform 0.3s ease-in-out, opacity 0.3s ease;
+                transform: translateY(-10px);
+                opacity: 0;
+                
+                /* Ensure menu has solid background */
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+            
+            .nav-links.show {
+                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                margin: 0;
+                background-color: var(--background-color, #ffffff); /* Solid background for each item */
+            }
+            
+            .nav-links li a {
+                display: block;
+                padding: 16px 20px;
+                text-align: center;
+                font-size: 1.1rem;
+                background-color: var(--background-color, #ffffff); /* Solid background for links */
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Slightly darker border */
+                color: var(--text-color, #333333); /* Ensure text color is visible */
+                font-weight: 500;
+            }
+            
+            /* Add hover effect for better feedback */
+            .nav-links li a:hover,
+            .nav-links li a:active {
+                background-color: var(--background-alt, #f5f5f5);
+            }
+            
+            /* Ensure language options don't overlap */
+            .nav-links li a.lang-en,
+            .nav-links li a.lang-no {
+                display: inline-block;
+                width: 100%;
+                padding: 16px 10px;
+            }
+            
+            /* Add a subtle header to the mobile menu */
+            .nav-links::before {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 5px;
+                background: linear-gradient(90deg, var(--primary-color, #4a90e2) 0%, var(--secondary-color, #63c9b4) 100%);
             }
         }
     </style>
