@@ -264,31 +264,31 @@
                         <h3 class="lang-en">Certifications</h3>
                         <h3 class="lang-no">Sertifikater</h3>
                         <div class="skills-grid">
-                            <div class="skill-icon-item">
+                            <a href="documents/SD_Python_Coursera.pdf" class="skill-icon-item certificate-link">
                                 <i class="fa-brands fa-python"></i>
                                 <span class="lang-en">Getting Started with Python</span>
                                 <span class="lang-no">Getting Started with Python</span>
-                            </div>
-                            <div class="skill-icon-item">
+                            </a>
+                            <a href="documents/SD_Fundamentals_of_Graphic_Design_Coursera.pdf" class="skill-icon-item certificate-link">
                                 <i class="fa-solid fa-palette"></i>
                                 <span class="lang-en">Fundamentals of Graphic Design</span>
                                 <span class="lang-no">Fundamentals of Graphic Design</span>
-                            </div>
-                            <div class="skill-icon-item">
+                            </a>
+                            <a href="documents/SD_Python_Coursera.pdf" class="skill-icon-item certificate-link">
                                 <i class="fa-solid fa-font"></i>
                                 <span class="lang-en">Introduction to Typography</span>
                                 <span class="lang-no">Introduction to Typography</span>
-                            </div>
-                            <div class="skill-icon-item">
+                            </a>
+                            <a href="documents/SD_Python_Coursera.pdf" class="skill-icon-item certificate-link">
                                 <i class="fa-solid fa-image"></i>
                                 <span class="lang-en">Introduction to Imagemaking</span>
                                 <span class="lang-no">Introduction to Imagemaking</span>
-                            </div>
-                            <div class="skill-icon-item">
+                            </a>
+                            <a href="documents/SD_Python_Coursera.pdf" class="skill-icon-item certificate-link">
                                 <i class="fa-solid fa-book-open"></i>
                                 <span class="lang-en">Ideas from the History of Graphic Design</span>
                                 <span class="lang-no">Ideas from the History of Graphic Design</span>
-                            </div>
+                            </a>
                         </div>                                
                 </div>
             </div>
@@ -749,6 +749,56 @@
                 });
             });
         });
+
+        // Add event handlers for certificate links
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all certificate links
+            const certificateLinks = document.querySelectorAll('.certificate-link');
+            
+            certificateLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Create modal overlay
+                    const modal = document.createElement('div');
+                    modal.classList.add('pdf-modal');
+                    // Disable right-click context menu on modal
+                    modal.addEventListener('contextmenu', ev => ev.preventDefault());
+                    
+                    // Create close button
+                    const closeBtn = document.createElement('button');
+                    closeBtn.classList.add('pdf-close-btn');
+                    closeBtn.innerHTML = '&times;';
+                    
+                    // Create PDF embed; disable toolbar and navpanes
+                    const embed = document.createElement('embed');
+                    embed.src = this.getAttribute('href') + '#toolbar=0&navpanes=0';
+                    embed.type = 'application/pdf';
+                    embed.classList.add('pdf-embed');
+                    embed.addEventListener('contextmenu', ev => ev.preventDefault());
+                    
+                    modal.appendChild(closeBtn);
+                    modal.appendChild(embed);
+                    document.body.appendChild(modal);
+                    
+                    // Animate modal appearance
+                    setTimeout(() => {
+                        modal.classList.add('show');
+                    }, 10);
+                    
+                    // Single event listener to close modal on outside click or close button
+                    function closeModal() {
+                        modal.classList.remove('show');
+                        setTimeout(() => document.body.removeChild(modal), 300);
+                    }
+                    closeBtn.addEventListener('click', closeModal);
+                    modal.addEventListener('click', function(ev) {
+                        if (ev.target === modal) closeModal();
+                    });
+                });
+            });
+        });
+
     </script>
 
     <style>
@@ -1677,6 +1727,39 @@
             transform: translateY(-2px);
             background: linear-gradient(to right, var(--primary-dark, #2a5a9e), var(--secondary-color, #63c9b4));
         }
+
+        /* Certificate Link Styling */
+        .certificate-link {
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        .certificate-link:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .certificate-link::after {
+            content: "\f0c5"; /* Font Awesome certificate icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .certificate-link:hover::after {
+            opacity: 1;
+        }
+
     </style>
 </body>
 </html>
