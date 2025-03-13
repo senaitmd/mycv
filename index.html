@@ -180,6 +180,32 @@
                         Bacheloroppgave: Utvikling av kultursenter: Shiromeda, Addis Ababa
                     </p>
                 </div>
+                
+                <!-- PhD Course - Updated layout with smaller gap and repositioned button -->
+                <div class="education-item continuing-education">
+                    <div class="continuing-header">
+                        <h4 class="lang-en">Continuing Education</h4>
+                        <h4 class="lang-no">Videreutdanning</h4>
+                        <a href="documents/NTNU_PhD_Course_GIS_Methods_Grade.pdf" class="certificate-link-inline lang-en">
+                            <i class="fas fa-certificate"></i> View Transcript
+                        </a>
+                        <a href="documents/NTNU_PhD_Course_GIS_Methods_Grade.pdf" class="certificate-link-inline lang-no">
+                            <i class="fas fa-certificate"></i> Se karakterutskrift
+                        </a>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-title lang-en">PhD Course: GIS Methods for Integrated Transport and Land Use Planning</span>
+                        <span class="course-title lang-no">PhD-Kurs: GIS-metoder for samordnet areal- og transportplanlegging</span>
+                        <span class="course-date lang-en">2023 | Norwegian University of Science and Technology (NTNU)</span>
+                        <span class="course-date lang-no">2023 | Norges teknisk-naturvitenskapelige universitet (NTNU)</span>
+                        <p class="course-description lang-en">
+                            Advanced coursework in GIS methods for analyzing and designing integrated transport and land use systems.
+                        </p>
+                        <p class="course-description lang-no">
+                            Avansert kurs i GIS-metoder for analyse og design av integrerte transport- og arealbrukssystemer.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="gradient-orb orb-1"></div>
@@ -754,6 +780,104 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Get all certificate links
             const certificateLinks = document.querySelectorAll('.certificate-link');
+            
+            certificateLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Create modal overlay
+                    const modal = document.createElement('div');
+                    modal.classList.add('pdf-modal');
+                    // Disable right-click context menu on modal
+                    modal.addEventListener('contextmenu', ev => ev.preventDefault());
+                    
+                    // Create close button
+                    const closeBtn = document.createElement('button');
+                    closeBtn.classList.add('pdf-close-btn');
+                    closeBtn.innerHTML = '&times;';
+                    
+                    // Create PDF embed; disable toolbar and navpanes
+                    const embed = document.createElement('embed');
+                    embed.src = this.getAttribute('href') + '#toolbar=0&navpanes=0';
+                    embed.type = 'application/pdf';
+                    embed.classList.add('pdf-embed');
+                    embed.addEventListener('contextmenu', ev => ev.preventDefault());
+                    
+                    modal.appendChild(closeBtn);
+                    modal.appendChild(embed);
+                    document.body.appendChild(modal);
+                    
+                    // Animate modal appearance
+                    setTimeout(() => {
+                        modal.classList.add('show');
+                    }, 10);
+                    
+                    // Single event listener to close modal on outside click or close button
+                    function closeModal() {
+                        modal.classList.remove('show');
+                        setTimeout(() => document.body.removeChild(modal), 300);
+                    }
+                    closeBtn.addEventListener('click', closeModal);
+                    modal.addEventListener('click', function(ev) {
+                        if (ev.target === modal) closeModal();
+                    });
+                });
+            });
+        });
+
+        // Add event handlers for certificate links and buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all certificate links and buttons
+            const certificateLinks = document.querySelectorAll('.certificate-link, .certificate-button');
+            
+            certificateLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Create modal overlay
+                    const modal = document.createElement('div');
+                    modal.classList.add('pdf-modal');
+                    // Disable right-click context menu on modal
+                    modal.addEventListener('contextmenu', ev => ev.preventDefault());
+                    
+                    // Create close button
+                    const closeBtn = document.createElement('button');
+                    closeBtn.classList.add('pdf-close-btn');
+                    closeBtn.innerHTML = '&times;';
+                    
+                    // Create PDF embed; disable toolbar and navpanes
+                    const embed = document.createElement('embed');
+                    embed.src = this.getAttribute('href') + '#toolbar=0&navpanes=0';
+                    embed.type = 'application/pdf';
+                    embed.classList.add('pdf-embed');
+                    embed.addEventListener('contextmenu', ev => ev.preventDefault());
+                    
+                    modal.appendChild(closeBtn);
+                    modal.appendChild(embed);
+                    document.body.appendChild(modal);
+                    
+                    // Animate modal appearance
+                    setTimeout(() => {
+                        modal.classList.add('show');
+                    }, 10);
+                    
+                    // Single event listener to close modal on outside click or close button
+                    function closeModal() {
+                        modal.classList.remove('show');
+                        setTimeout(() => document.body.removeChild(modal), 300);
+                    }
+                    closeBtn.addEventListener('click', closeModal);
+                    modal.addEventListener('click', function(ev) {
+                        if (ev.target === modal) closeModal();
+                    });
+                });
+            });
+        });
+
+        // Add event handlers for certificate links, buttons, and inline certificates
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all certificate links and buttons (including inline ones)
+            const certificateLinks = document.querySelectorAll('.certificate-link, .certificate-button, .certificate-link-inline');
             
             certificateLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
@@ -1760,6 +1884,158 @@
             opacity: 1;
         }
 
+        /* Certificate button styling */
+        .additional-education {
+            border-top: 2px dashed var(--border-color);
+            padding-top: 22px;
+            margin-top: 22px;
+        }
+        
+        .course-certificate {
+            margin-top: 12px;
+        }
+        
+        .certificate-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 8px 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+        
+        .certificate-button i {
+            margin-right: 6px;
+        }
+        
+        .certificate-button:hover {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+        }
+        
+        @media (max-width: 480px) {
+            .certificate-button {
+                font-size: 0.85rem;
+                padding: 7px 14px;
+                display: block;
+                text-align: center;
+                margin-top: 8px;
+            }
+        }
+
+        /* Continuing Education styling - less prominent */
+        .continuing-education {
+            border-top: 1px dashed var(--border-color);
+            padding-top: 15px; /* Reduced from 20px */
+            margin-top: 15px; /* Reduced from 25px */
+            opacity: 0.9;
+        }
+        
+        /* New header layout for continuing education */
+        .continuing-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .continuing-education h4 {
+            font-size: 1.15rem;
+            color: var(--secondary-color);
+            margin-bottom: 0; /* Changed from 12px to 0 */
+        }
+        
+        .course-item {
+            padding-left: 15px;
+            border-left: 3px solid rgba(var(--primary-rgb), 0.2);
+        }
+        
+        .course-title {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+        
+        .course-date {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .course-description {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        /* Inline certificate link - repositioned */
+        .certificate-link-inline {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+        
+        .certificate-link-inline i {
+            margin-right: 4px;
+            font-size: 0.75rem;
+        }
+        
+        .certificate-link-inline:hover {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark) 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* Mobile responsive styles for continuing education */
+        @media (max-width: 768px) {
+            .continuing-header {
+                flex-direction: row; /* Maintain row layout on tablets */
+                flex-wrap: wrap;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .course-title {
+                font-size: 1rem;
+            }
+            
+            .course-date {
+                font-size: 0.85rem;
+            }
+            
+            .course-description {
+                font-size: 0.9rem;
+            }
+            
+            .continuing-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .certificate-link-inline {
+                margin-left: 0;
+                margin-top: 8px;
+                font-size: 0.75rem;
+                padding: 3px 8px;
+            }
+        }
     </style>
 </body>
 </html>
@@ -1785,3 +2061,4 @@
     </style>
 </body>
 </html>
+
