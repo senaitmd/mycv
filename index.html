@@ -748,11 +748,16 @@
                     closeBtn.innerHTML = '&times;';
                     
                     // Create PDF embed; disable toolbar and navpanes
-                    const embed = document.createElement('embed');
-                    embed.src = this.getAttribute('href') + '#toolbar=0&navpanes=0';
+                    const embed = document.createElement('object');
+                    embed.data = this.getAttribute('href') + '#toolbar=0&navpanes=0';
                     embed.type = 'application/pdf';
                     embed.classList.add('pdf-embed');
                     embed.addEventListener('contextmenu', ev => ev.preventDefault());
+                    // Fallback content for browsers that can't display PDFs
+                    const fallbackLink = document.createElement('a');
+                    fallbackLink.href = this.getAttribute('href');
+                    fallbackLink.textContent = 'Download PDF';
+                    embed.appendChild(fallbackLink);
                     
                     modal.appendChild(closeBtn);
                     modal.appendChild(embed);
@@ -764,13 +769,14 @@
                     }, 10);
                     
                     // Single event listener to close modal on outside click or close button
-                    function closeModal() {
+                    function closeModal(ev) {
+                        ev.stopPropagation();
                         modal.classList.remove('show');
                         setTimeout(() => document.body.removeChild(modal), 300);
                     }
                     closeBtn.addEventListener('click', closeModal);
                     modal.addEventListener('click', function(ev) {
-                        if (ev.target === modal) closeModal();
+                        if (ev.target === modal) closeModal(ev);
                     });
                 });
             });
@@ -797,11 +803,16 @@
                     closeBtn.innerHTML = '&times;';
                     
                     // Create PDF embed; disable toolbar and navpanes
-                    const embed = document.createElement('embed');
-                    embed.src = this.getAttribute('href') + '#toolbar=0&navpanes=0';
+                    const embed = document.createElement('object');
+                    embed.data = this.getAttribute('href') + '#toolbar=0&navpanes=0';
                     embed.type = 'application/pdf';
                     embed.classList.add('pdf-embed');
                     embed.addEventListener('contextmenu', ev => ev.preventDefault());
+                    // Fallback content for browsers that can't display PDFs
+                    const fallbackLink = document.createElement('a');
+                    fallbackLink.href = this.getAttribute('href');
+                    fallbackLink.textContent = 'Download PDF';
+                    embed.appendChild(fallbackLink);
                     
                     modal.appendChild(closeBtn);
                     modal.appendChild(embed);
@@ -813,13 +824,14 @@
                     }, 10);
                     
                     // Single event listener to close modal on outside click or close button
-                    function closeModal() {
+                    function closeModal(ev) {
+                        ev.stopPropagation();
                         modal.classList.remove('show');
                         setTimeout(() => document.body.removeChild(modal), 300);
                     }
                     closeBtn.addEventListener('click', closeModal);
                     modal.addEventListener('click', function(ev) {
-                        if (ev.target === modal) closeModal();
+                        if (ev.target === modal) closeModal(ev);
                     });
                 });
             });
@@ -846,11 +858,16 @@
                     closeBtn.innerHTML = '&times;';
                     
                     // Create PDF embed; disable toolbar and navpanes
-                    const embed = document.createElement('embed');
-                    embed.src = this.getAttribute('href') + '#toolbar=0&navpanes=0';
+                    const embed = document.createElement('object');
+                    embed.data = this.getAttribute('href') + '#toolbar=0&navpanes=0';
                     embed.type = 'application/pdf';
                     embed.classList.add('pdf-embed');
                     embed.addEventListener('contextmenu', ev => ev.preventDefault());
+                    // Fallback content for browsers that can't display PDFs
+                    const fallbackLink = document.createElement('a');
+                    fallbackLink.href = this.getAttribute('href');
+                    fallbackLink.textContent = 'Download PDF';
+                    embed.appendChild(fallbackLink);
                     
                     modal.appendChild(closeBtn);
                     modal.appendChild(embed);
@@ -862,13 +879,14 @@
                     }, 10);
                     
                     // Single event listener to close modal on outside click or close button
-                    function closeModal() {
+                    function closeModal(ev) {
+                        ev.stopPropagation();
                         modal.classList.remove('show');
                         setTimeout(() => document.body.removeChild(modal), 300);
                     }
                     closeBtn.addEventListener('click', closeModal);
                     modal.addEventListener('click', function(ev) {
-                        if (ev.target === modal) closeModal();
+                        if (ev.target === modal) closeModal(ev);
                     });
                 });
             });
@@ -895,11 +913,16 @@
                     closeBtn.innerHTML = '&times;';
                     
                     // Create PDF embed; disable toolbar and navpanes
-                    const embed = document.createElement('embed');
-                    embed.src = this.getAttribute('href') + '#toolbar=0&navpanes=0';
+                    const embed = document.createElement('object');
+                    embed.data = this.getAttribute('href') + '#toolbar=0&navpanes=0';
                     embed.type = 'application/pdf';
                     embed.classList.add('pdf-embed');
                     embed.addEventListener('contextmenu', ev => ev.preventDefault());
+                    // Fallback content for browsers that can't display PDFs
+                    const fallbackLink = document.createElement('a');
+                    fallbackLink.href = this.getAttribute('href');
+                    fallbackLink.textContent = 'Download PDF';
+                    embed.appendChild(fallbackLink);
                     
                     modal.appendChild(closeBtn);
                     modal.appendChild(embed);
@@ -911,13 +934,14 @@
                     }, 10);
                     
                     // Single event listener to close modal on outside click or close button
-                    function closeModal() {
+                    function closeModal(ev) {
+                        ev.stopPropagation();
                         modal.classList.remove('show');
                         setTimeout(() => document.body.removeChild(modal), 300);
                     }
                     closeBtn.addEventListener('click', closeModal);
                     modal.addEventListener('click', function(ev) {
-                        if (ev.target === modal) closeModal();
+                        if (ev.target === modal) closeModal(ev);
                     });
                 });
             });
@@ -2035,28 +2059,6 @@
                 font-size: 0.75rem;
                 padding: 3px 8px;
             }
-        }
-    </style>
-</body>
-</html>
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-color);
-        }
-    </style>
-</body>
-</html>
-
-            transition: all 0.3s ease;
-            padding: 15px 10px;
-            text-align: center;
-        }
-    </style>
-</body>
-</html>
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-color);
         }
     </style>
 </body>
