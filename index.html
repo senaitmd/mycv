@@ -51,17 +51,17 @@
                 </div>
                 <div class="header-content">
                     <h1>Senait M. Dawede</h1>
-                    <p class="lang-en">Urban and Regional Planner</p>
-                    <p class="lang-no">Byplanlegger/Arealplanlegger</p>
+                    <p class="job-title lang-en">Urban and Regional Planner</p>
+                    <p class="job-title lang-no">Byplanlegger/Arealplanlegger</p>
                     <div class="contact-info">
-                        <div class="contact-item">
+                        <a href="mailto:senaitm06@gmail.com" class="contact-item">
                             <i class="fas fa-envelope"></i>
                             <span>senaitm06@gmail.com</span>
-                        </div>
-                        <div class="contact-item">
+                        </a>
+                        <a href="tel:+4748922767" class="contact-item">
                             <i class="fas fa-phone"></i>
                             <span>+47 489 22 767</span>
-                        </div>
+                        </a>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>Tors veg 38A, Trondheim, Norway</span>
@@ -69,9 +69,7 @@
                     </div>
                     <div class="social-icons">
                         <a href="https://linkedin.com/in/senaitmd" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <!--a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a-->
                         <a href="https://github.com/senaitmd" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <!--a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a-->
                     </div>
                 </div>
             </div>
@@ -1770,6 +1768,239 @@
             scroll-margin-top: 80px; /* Adjust based on your navbar height */
             padding-top: 20px;
         }
+
+        /* Enhanced Header Layout */
+        .header-section {
+            padding: 40px 0 30px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--background-color) 0%, var(--background-alt) 100%);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Improved Profile Image Container */
+        .profile-img-container {
+            position: relative;
+            width: 160px;
+            height: 200px;
+            margin-right: 30px;
+            flex-shrink: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            background-color: var(--primary-light);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Header Content Enhancements */
+        .header-content {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .header-content h1 {
+            margin: 0 0 5px;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .job-title {
+            margin: 0 0 15px;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Contact Information Layout */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background-color: var(--background-alt);
+            padding: 8px 12px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            margin-right: 8px;
+        }
+
+        a.contact-item:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item i {
+            margin-right: 8px;
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+
+        /* Social Icons Styling */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px) rotate(5deg);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark) 100%);
+        }
+
+        /* Media queries for responsive design */
+        @media (max-width: 992px) {
+            .header {
+                padding: 25px;
+            }
+            
+            .profile-img-container {
+                width: 150px;
+                height: 185px;
+                margin-right: 25px;
+            }
+            
+            .header-content h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px 20px;
+            }
+            
+            .profile-img-container {
+                margin: 0 auto 20px;
+                width: 140px;
+                height: 175px;
+            }
+            
+            .header-content {
+                width: 100%;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+                margin-top: 15px;
+            }
+            
+            .contact-item {
+                margin: 0 4px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-section {
+                padding: 25px 0 20px;
+            }
+            
+            .header {
+                padding: 20px 15px;
+                border-radius: 12px;
+            }
+            
+            .profile-img-container {
+                width: 120px;
+                height: 150px;
+                border-radius: 10px;
+            }
+            
+            .header-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .job-title {
+                font-size: 1.1rem;
+                margin-bottom: 12px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .contact-item {
+                width: 100%;
+                justify-content: center;
+                margin: 0;
+            }
+        }
+        
+        @media (max-width: 380px) {
+            .profile-img-container {
+                width: 110px;
+                height: 140px;
+            }
+            
+            .header-content h1 {
+                font-size: 1.6rem;
+            }
+            
+            .job-title {
+                font-size: 1rem;
+            }
+            
+            .social-icons a {
+                width: 36px;
+                height: 36px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Remove any conflicting previous styles */
+        /* ...existing styles... */
     </style>
 </body>
 </html>
