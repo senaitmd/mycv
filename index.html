@@ -569,422 +569,86 @@
             }
         });
 
-        // Remove redundant mobile menu code
-        // The mobile menu functionality is now consolidated above
-
-        // Add PDF embeding script
+        // Consolidated PDF viewer functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Get all approval letter links
-            const approvalBtnEn = document.getElementById('approval-btn-en');
-            const approvalBtnNo = document.getElementById('approval-btn-no');
-            const approvalBtns = [approvalBtnEn, approvalBtnNo];
+            // Select all elements that should open PDFs in the modal
+            const pdfLinks = document.querySelectorAll('.approval-btn, .certificate-link, .certificate-link-inline');
 
-            approvalBtns.forEach(btn => {
-                if (!btn) return; // Skip if button doesn't exist
-
-                btn.addEventListener('click', function(e) {
+            // Single event handler for all PDF links
+            function setupPdfViewer(link) {
+                link.addEventListener('click', function(e) {
                     e.preventDefault();
-
-                    // Create modal for PDF viewing
+                    
+                    // Get PDF path from href attribute
+                    const pdfPath = this.getAttribute('href');
+                    
+                    // Create modal container
                     const modal = document.createElement('div');
                     modal.classList.add('pdf-modal');
-
+                    modal.addEventListener('contextmenu', ev => ev.preventDefault());
+                    
                     // Create close button
                     const closeBtn = document.createElement('button');
                     closeBtn.classList.add('pdf-close-btn');
                     closeBtn.innerHTML = '&times;';
-
-                    // Create PDF embed
-                    const embed = document.createElement('embed');
-                    embed.src = this.getAttribute('href') + '#toolbar=0&navpanes=0';
+                    
+                    // Create PDF embed with fallback
+                    const embed = document.createElement('object');
+                    embed.data = pdfPath + '#toolbar=0&navpanes=0';
                     embed.type = 'application/pdf';
                     embed.classList.add('pdf-embed');
-
-                    // Add elements to modal
+                    embed.addEventListener('contextmenu', ev => ev.preventDefault());
+                    
+                    // Fallback content
+                    const fallbackLink = document.createElement('a');
+                    fallbackLink.href = pdfPath;
+                    fallbackLink.textContent = 'Download PDF';
+                    fallbackLink.target = '_blank';
+                    embed.appendChild(fallbackLink);
+                    
+                    // Assemble modal
                     modal.appendChild(closeBtn);
                     modal.appendChild(embed);
                     document.body.appendChild(modal);
-
+                    
                     // Show modal with animation
-                    setTimeout(() => {
-                        modal.classList.add('show');
-                    }, 10);
-
-                    // Close modal on button click
+                    setTimeout(() => modal.classList.add('show'), 10);
+                    
+                    // Close button event
                     closeBtn.addEventListener('click', function() {
-                        modal.classList.remove('show');
-                        setTimeout(() => {
-                            document.body.removeChild(modal);
-                        }, 300);
+                        closeModal();
                     });
-
-                    // Also close on click outside the PDF
+                    
+                    // Close on outside click
                     modal.addEventListener('click', function(e) {
                         if (e.target === modal) {
-                            modal.classList.remove('show');
-                            setTimeout(() => {
-                                document.body.removeChild(modal);
-                            }, 300);
+                            closeModal();
                         }
                     });
-                });
-            });
-        });
-
-        // Updated PDF embedding script with path fallbacks
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get approval letter buttons
-            const approvalBtnEn = document.getElementById('approval-btn-en');
-            const approvalBtnNo = document.getElementById('approval-btn-no');
-            const approvalBtns = [approvalBtnEn, approvalBtnNo];
-
-            approvalBtns.forEach(btn => {
-                if (!btn) return; // Skip if button doesn't exist
-
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-
-                    // Try multiple path options to find the PDF
-                    const paths = [
-                        this.getAttribute('href'),           // Original path
-                        this.getAttribute('data-filepath'),  // Data attribute path
-                        'NOKUT_approval.pdf',                // Root level
-                        '../NOKUT_approval.pdf',             // One level up
-                        './assets/NOKUT_approval.pdf',       // Explicit relative path
-                        './NOKUT_approval.pdf'               // Root level with explicit relative
-                    ];
-
-                    // Create modal for PDF viewing
-                    const modal = document.createElement('div');
-                    modal.classList.add('pdf-modal');
-
-                    // Create close button
-                    const closeBtn = document.createElement('button');
-                    closeBtn.classList.add('pdf-close-btn');
-                    closeBtn.innerHTML = '&times;';
-
-                    // Create loading message
-                    const loadingMsg = document.createElement('div');
-                    loadingMsg.classList.add('pdf-loading');
-                    loadingMsg.innerHTML = '<p>Loading PDF...</p><p>If the PDF doesn\'t load, please ensure the file is in the correct location.</p>';
-
-                    // Add initial elements to modal
-                    modal.appendChild(closeBtn);
-                    modal.appendChild(loadingMsg);
-                    document.body.appendChild(modal);
-
-                    // Show modal with animation
-                    setTimeout(() => {
-                        modal.classList.add('show');
-                    }, 10);
-
-                    // Try to load the PDF with different paths
-                    function tryLoadPDF(pathIndex) {
-                        if (pathIndex >= paths.length) {
-                            // All paths failed, show error message
-                            loadingMsg.innerHTML = `
-                                <h3>Couldn't load the PDF</h3>
-                                <p>Please check that your PDF file exists at one of these locations:</p>
-                                <ul>
-                                    <li>assets/NOKUT_approval.pdf</li>
-                                    <li>NOKUT_approval.pdf (in root folder)</li>
-                                </ul>
-                                <p>Path tried: ${paths.join(', ')}</p>
-                            `;
-                            return;
+                    
+                    // Escape key to close
+                    document.addEventListener('keydown', handleEscKey);
+                    
+                    function handleEscKey(e) {
+                        if (e.key === 'Escape') {
+                            closeModal();
                         }
-
-                        const path = paths[pathIndex];
-                        const embed = document.createElement('embed');
-                        embed.src = path + '#toolbar=0&navpanes=0';
-                        embed.type = 'application/pdf';
-                        embed.classList.add('pdf-embed');
-
-                        // Check if PDF loads successfully
-                        embed.onerror = function() {
-                            // Try next path if this fails
-                            tryLoadPDF(pathIndex + 1);
-                        };
-
-                        embed.onload = function() {
-                            // On success, replace loading message with the PDF
-                            modal.removeChild(loadingMsg);
-                            modal.appendChild(embed);
-
-                            // Update the href attribute with the working path for future clicks
-                            approvalBtns.forEach(btn => {
-                                if (btn) btn.setAttribute('href', path);
-                            });
-                        };
-
-                        // Start loading
-                        const testImg = new Image();
-                        testImg.onload = function() {
-                            // PDF exists, add to modal
-                            modal.removeChild(loadingMsg);
-                            modal.appendChild(embed);
-                        };
-                        testImg.onerror = function() {
-                            // Try next path
-                            tryLoadPDF(pathIndex + 1);
-                        };
-                        // Try to load a test image from the same path to check if the directory is accessible
-                        testImg.src = path.replace('.pdf', '.jpg');
-
-                        // Also try direct embed approach
+                    }
+                    
+                    function closeModal() {
+                        modal.classList.remove('show');
+                        document.removeEventListener('keydown', handleEscKey);
                         setTimeout(() => {
-                            if (modal.contains(loadingMsg)) {
-                                modal.removeChild(loadingMsg);
-                                modal.appendChild(embed);
+                            if (document.body.contains(modal)) {
+                                document.body.removeChild(modal);
                             }
-                        }, 1500);
-                    }
-
-                    // Start trying paths
-                    tryLoadPDF(0);
-
-                    // Close modal on button click
-                    closeBtn.addEventListener('click', function() {
-                        modal.classList.remove('show');
-                        setTimeout(() => {
-                            document.body.removeChild(modal);
                         }, 300);
-                    });
-
-                    // Also close on click outside the PDF
-                    modal.addEventListener('click', function(e) {
-                        if (e.target === modal) {
-                            modal.classList.remove('show');
-                            setTimeout(() => {
-                                document.body.removeChild(modal);
-                            }, 300);
-                        }
-                    });
-                });
-            });
-        });
-
-        // Floating PDF modal viewer modifications
-        document.addEventListener('DOMContentLoaded', function() {
-            const approvalBtnEn = document.getElementById('approval-btn-en');
-            const approvalBtnNo = document.getElementById('approval-btn-no');
-            const approvalBtns = [approvalBtnEn, approvalBtnNo];
-
-            approvalBtns.forEach(btn => {
-                if (!btn) return;
-
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-
-                    // Create modal overlay
-                    const modal = document.createElement('div');
-                    modal.classList.add('pdf-modal');
-                    // Disable right-click context menu on modal and embed
-                    modal.addEventListener('contextmenu', ev => ev.preventDefault());
-
-                    // Create close button
-                    const closeBtn = document.createElement('button');
-                    closeBtn.classList.add('pdf-close-btn');
-                    closeBtn.innerHTML = '&times;';
-
-                    // Create PDF embed; disable toolbar and navpanes
-                    const embed = document.createElement('object');
-                    embed.data = this.getAttribute('href') + '#toolbar=0&navpanes=0';
-                    embed.type = 'application/pdf';
-                    embed.classList.add('pdf-embed');
-                    embed.addEventListener('contextmenu', ev => ev.preventDefault());
-                    // Fallback content for browsers that can't display PDFs
-                    const fallbackLink = document.createElement('a');
-                    fallbackLink.href = this.getAttribute('href');
-                    fallbackLink.textContent = 'Download PDF';
-                    embed.appendChild(fallbackLink);
-
-                    modal.appendChild(closeBtn);
-                    modal.appendChild(embed);
-                    document.body.appendChild(modal);
-
-                    // Animate modal appearance
-                    setTimeout(() => {
-                        modal.classList.add('show');
-                    }, 10);
-
-                    // Single event listener to close modal on outside click or close button
-                    function closeModal(ev) {
-                        ev.stopPropagation();
-                        modal.classList.remove('show');
-                        setTimeout(() => document.body.removeChild(modal), 300);
                     }
-                    closeBtn.addEventListener('click', closeModal);
-                    modal.addEventListener('click', function(ev) {
-                        if (ev.target === modal) closeModal(ev);
-                    });
                 });
-            });
-        });
-
-        // Add event handlers for certificate links
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all certificate links
-            const certificateLinks = document.querySelectorAll('.certificate-link');
-
-            certificateLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-
-                    // Create modal overlay
-                    const modal = document.createElement('div');
-                    modal.classList.add('pdf-modal');
-                    // Disable right-click context menu on modal
-                    modal.addEventListener('contextmenu', ev => ev.preventDefault());
-
-                    // Create close button
-                    const closeBtn = document.createElement('button');
-                    closeBtn.classList.add('pdf-close-btn');
-                    closeBtn.innerHTML = '&times;';
-
-                    // Create PDF embed; disable toolbar and navpanes
-                    const embed = document.createElement('object');
-                    embed.data = this.getAttribute('href') + '#toolbar=0&navpanes=0';
-                    embed.type = 'application/pdf';
-                    embed.classList.add('pdf-embed');
-                    embed.addEventListener('contextmenu', ev => ev.preventDefault());
-                    // Fallback content for browsers that can't display PDFs
-                    const fallbackLink = document.createElement('a');
-                    fallbackLink.href = this.getAttribute('href');
-                    fallbackLink.textContent = 'Download PDF';
-                    embed.appendChild(fallbackLink);
-
-                    modal.appendChild(closeBtn);
-                    modal.appendChild(embed);
-                    document.body.appendChild(modal);
-
-                    // Animate modal appearance
-                    setTimeout(() => {
-                        modal.classList.add('show');
-                    }, 10);
-
-                    // Single event listener to close modal on outside click or close button
-                    function closeModal(ev) {
-                        ev.stopPropagation();
-                        modal.classList.remove('show');
-                        setTimeout(() => document.body.removeChild(modal), 300);
-                    }
-                    closeBtn.addEventListener('click', closeModal);
-                    modal.addEventListener('click', function(ev) {
-                        if (ev.target === modal) closeModal(ev);
-                    });
-                });
-            });
-        });
-
-        // Add event handlers for certificate links and buttons
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all certificate links and buttons
-            const certificateLinks = document.querySelectorAll('.certificate-link, .certificate-button');
-
-            certificateLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-
-                    // Create modal overlay
-                    const modal = document.createElement('div');
-                    modal.classList.add('pdf-modal');
-                    // Disable right-click context menu on modal
-                    modal.addEventListener('contextmenu', ev => ev.preventDefault());
-
-                    // Create close button
-                    const closeBtn = document.createElement('button');
-                    closeBtn.classList.add('pdf-close-btn');
-                    closeBtn.innerHTML = '&times;';
-
-                    // Create PDF embed; disable toolbar and navpanes
-                    const embed = document.createElement('object');
-                    embed.data = this.getAttribute('href') + '#toolbar=0&navpanes=0';
-                    embed.type = 'application/pdf';
-                    embed.classList.add('pdf-embed');
-                    embed.addEventListener('contextmenu', ev => ev.preventDefault());
-                    // Fallback content for browsers that can't display PDFs
-                    const fallbackLink = document.createElement('a');
-                    fallbackLink.href = this.getAttribute('href');
-                    fallbackLink.textContent = 'Download PDF';
-                    embed.appendChild(fallbackLink);
-
-                    modal.appendChild(closeBtn);
-                    modal.appendChild(embed);
-                    document.body.appendChild(modal);
-
-                    // Animate modal appearance
-                    setTimeout(() => {
-                        modal.classList.add('show');
-                    }, 10);
-
-                    // Single event listener to close modal on outside click or close button
-                    function closeModal(ev) {
-                        ev.stopPropagation();
-                        modal.classList.remove('show');
-                        setTimeout(() => document.body.removeChild(modal), 300);
-                    }
-                    closeBtn.addEventListener('click', closeModal);
-                    modal.addEventListener('click', function(ev) {
-                        if (ev.target === modal) closeModal(ev);
-                    });
-                });
-            });
-        });
-
-        // Add event handlers for certificate links, buttons, and inline certificates
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all certificate links and buttons (including inline ones)
-            const certificateLinks = document.querySelectorAll('.certificate-link, .certificate-button, .certificate-link-inline');
-
-            certificateLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-
-                    // Create modal overlay
-                    const modal = document.createElement('div');
-                    modal.classList.add('pdf-modal');
-                    // Disable right-click context menu on modal
-                    modal.addEventListener('contextmenu', ev => ev.preventDefault());
-
-                    // Create close button
-                    const closeBtn = document.createElement('button');
-                    closeBtn.classList.add('pdf-close-btn');
-                    closeBtn.innerHTML = '&times;';
-
-                    // Create PDF embed; disable toolbar and navpanes
-                    const embed = document.createElement('object');
-                    embed.data = this.getAttribute('href') + '#toolbar=0&navpanes=0';
-                    embed.type = 'application/pdf';
-                    embed.classList.add('pdf-embed');
-                    embed.addEventListener('contextmenu', ev => ev.preventDefault());
-                    // Fallback content for browsers that can't display PDFs
-                    const fallbackLink = document.createElement('a');
-                    fallbackLink.href = this.getAttribute('href');
-                    fallbackLink.textContent = 'Download PDF';
-                    embed.appendChild(fallbackLink);
-
-                    modal.appendChild(closeBtn);
-                    modal.appendChild(embed);
-                    document.body.appendChild(modal);
-
-                    // Animate modal appearance
-                    setTimeout(() => {
-                        modal.classList.add('show');
-                    }, 10);
-
-                    // Single event listener to close modal on outside click or close button
-                    function closeModal(ev) {
-                        ev.stopPropagation();
-                        modal.classList.remove('show');
-                        setTimeout(() => document.body.removeChild(modal), 300);
-                    }
-                    closeBtn.addEventListener('click', closeModal);
-                    modal.addEventListener('click', function(ev) {
-                        if (ev.target === modal) closeModal(ev);
-                    });
-                });
-            });
+            }
+            
+            // Apply the event listener to all PDF links
+            pdfLinks.forEach(setupPdfViewer);
         });
 
     </script>
