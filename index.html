@@ -471,13 +471,25 @@
             });
         });
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for navigation links - UPDATED with offset
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Calculate position with offset for the navbar
+                    const navbarHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = targetPosition - navbarHeight - 20; // 20px extra padding
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
         
@@ -2065,6 +2077,12 @@
                 font-size: 0.75rem;
                 padding: 3px 8px;
             }
+        }
+
+        /* Add padding to section tops to prevent navbar overlap */
+        section {
+            scroll-margin-top: 80px; /* Adjust based on your navbar height */
+            padding-top: 20px;
         }
     </style>
 </body>
