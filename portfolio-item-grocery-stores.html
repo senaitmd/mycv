@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Project | Grocery Store Coverage & Facility Minimization</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .project-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 15px;
+        }
+        .project-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        .project-header h1 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 2.2rem;
+        }
+        .project-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 35px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .project-content {
+            line-height: 1.8;
+        }
+        .project-content h2 {
+            color: var(--primary-color);
+            margin: 25px 0 15px;
+            font-size: 1.6rem;
+        }
+        .project-content p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        .project-details {
+            margin-top: 45px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            border-top: 1px solid var(--secondary-color);
+            padding-top: 25px;
+        }
+        .detail-item h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 35px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .back-button:hover {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="content-wrapper nav-container">
+            <a href="index.html" class="logo">Senait Dawede</a>
+            <div class="language-selector">
+                <button id="en-btn" class="lang-btn active" aria-label="Switch to English">EN</button>
+                <button id="no-btn" class="lang-btn" aria-label="Switch to Norwegian">NO</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="project-container">
+        <div class="project-header">
+            <!-- English & Norwegian headings -->
+            <h1 class="lang-en">Grocery Stores: Coverage & Minimizing Facilities</h1>
+            <h1 class="lang-no">Dagligvarebutikker: Dekning og færre fasiliteter</h1>
+        </div>
+
+        <!-- Replace with your own image or a relevant map screenshot -->
+        <img src="images/grocery-coverage.webp" alt="Grocery Store Analysis" class="project-image">
+
+        <div class="project-content">
+
+            <!-- Project Overview heading -->
+            <h2 class="lang-en">Project Overview</h2>
+            <h2 class="lang-no">Prosjektoversikt</h2>
+
+            <!-- English paragraphs -->
+            <p class="lang-en">
+                This study focuses on a set of twelve grocery stores in Trondheim. To reduce high rental costs, 
+                the owner wants to keep only as many stores as necessary while still ensuring coverage for 
+                as many residents as possible within a 5-minute driving cutoff.
+            </p>
+            <p class="lang-en">
+                By applying location-allocation analysis in ArcGIS Pro, we tested maximizing coverage alone 
+                versus maximizing coverage while minimizing the number of facilities. The results showed 
+                that we could serve the same population with just 11 stores instead of 12, reducing costs 
+                without lowering coverage.
+            </p>
+
+            <!-- Norwegian paragraphs -->
+            <p class="lang-no">
+                Denne studien fokuserer på tolv dagligvarebutikker i Trondheim. For å redusere høye leiekostnader 
+                ønsker eieren kun å beholde det nødvendige antallet butikker, samtidig som dekningen for 
+                flest mulig innbyggere innen en 5-minutters kjøretid opprettholdes.
+            </p>
+            <p class="lang-no">
+                Ved å bruke lokasjonsallokeringsanalyse i ArcGIS Pro testet vi først å maksimere dekningen alene, 
+                og deretter å maksimere dekningen samtidig som antall fasiliteter ble redusert. Resultatene viste 
+                at vi kunne betjene den samme befolkningen med bare 11 butikker i stedet for 12, 
+                noe som reduserte kostnadene uten å svekke dekningen.
+            </p>
+
+            <!-- Project Details -->
+            <div class="project-details">
+                <div class="detail-item">
+                    <h3 class="lang-en">Tools Used</h3>
+                    <h3 class="lang-no">Verktøy brukt</h3>
+                    <p>ArcGIS Pro, Location Allocation Model, Network Analysis</p>
+                </div>
+                <div class="detail-item">
+                    <h3 class="lang-en">Project Date</h3>
+                    <h3 class="lang-no">Prosjektdato</h3>
+                    <p>2023</p>
+                </div>
+                <div class="detail-item">
+                    <h3 class="lang-en">Project Type</h3>
+                    <h3 class="lang-no">Prosjekttype</h3>
+                    <p class="lang-en">GIS Analysis & Optimization</p>
+                    <p class="lang-no">GIS-analyse og optimalisering</p>
+                </div>
+            </div>
+
+            <!-- Back to Portfolio -->
+            <a href="index.html#portfolio" class="back-button lang-en">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            <a href="index.html#portfolio" class="back-button lang-no">
+                <i class="fas fa-arrow-left"></i> Tilbake til porteføljen
+            </a>
+        </div>
+    </div>
+
+    <!-- Language switcher script (same as in portfolio-item.html) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const enBtn = document.getElementById('en-btn');
+            const noBtn = document.getElementById('no-btn');
+            const enElements = document.querySelectorAll('.lang-en');
+            const noElements = document.querySelectorAll('.lang-no');
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            setLanguage(savedLanguage);
+
+            enBtn.addEventListener('click', function() {
+                setLanguage('en');
+                localStorage.setItem('language', 'en');
+            });
+            noBtn.addEventListener('click', function() {
+                setLanguage('no');
+                localStorage.setItem('language', 'no');
+            });
+
+            function setLanguage(lang) {
+                if (lang === 'en') {
+                    enElements.forEach(el => el.style.display = 'block');
+                    noElements.forEach(el => el.style.display = 'none');
+                    enBtn.classList.add('active');
+                    noBtn.classList.remove('active');
+                    document.documentElement.lang = 'en';
+                } else {
+                    enElements.forEach(el => el.style.display = 'none');
+                    noElements.forEach(el => el.style.display = 'block');
+                    noBtn.classList.add('active');
+                    enBtn.classList.remove('active');
+                    document.documentElement.lang = 'no';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
