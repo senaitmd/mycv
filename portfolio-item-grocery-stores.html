@@ -92,12 +92,12 @@
     <div class="project-container">
         <div class="project-header">
             <!-- English & Norwegian headings -->
-            <h1 class="lang-en">Grocery Stores: Coverage & Minimizing Facilities</h1>
-            <h1 class="lang-no">Dagligvarebutikker: Dekning og færre fasiliteter</h1>
+            <h1 class="lang-en">Maximizing Coverage & Minimizing Facilities: Grocery Stores</h1>
+            <h1 class="lang-no">Maksimering av dekning og minimering av fasiliteter: Dagligvarebutikker</h1>
         </div>
 
         <!-- Replace with your own image or a relevant map screenshot -->
-        <img src="images/grocery-coverage.webp" alt="Grocery Store Analysis" class="project-image">
+        <img src="documents/SD_portfolio_grocery_stores.pdf" alt="Grocery Store Analysis" class="project-image">
 
         <div class="project-content">
 
@@ -194,6 +194,87 @@
                     enBtn.classList.remove('active');
                     document.documentElement.lang = 'no';
                 }
+            }
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        // Set PDF.js worker path
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        
+        // Function to render PDF as image
+        async function renderPDFAsImage(url, canvasContainer, pageNumber = 1) {
+            try {
+                // Loading task
+                const loadingTask = pdfjsLib.getDocument(url);
+                const pdf = await loadingTask.promise;
+                
+                // Get page
+                const page = await pdf.getPage(pageNumber);
+                
+                // Create canvas element if not exists
+                let canvas = document.createElement('canvas');
+                canvasContainer.appendChild(canvas);
+                
+                // Prepare canvas
+                const viewport = page.getViewport({ scale: 2 }); // Higher scale for detailed view
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                canvas.style.width = '100%';
+                canvas.style.height = 'auto';
+                canvas.style.maxHeight = '500px';
+                canvas.style.objectFit = 'contain';
+                canvas.style.borderRadius = '12px';
+                canvas.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                canvas.style.opacity = '0';
+                canvas.style.transition = 'opacity 0.3s ease';
+                
+                // Render PDF page into canvas context
+                const context = canvas.getContext('2d');
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                
+                await page.render(renderContext).promise;
+                
+                // Show canvas with gentle fade-in
+                setTimeout(() => {
+                    canvas.style.opacity = '1';
+                }, 50);
+                
+                return true;
+            } catch (error) {
+                console.error('Error rendering PDF:', error);
+                return false;
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if project image is a PDF
+            const projectImg = document.querySelector('.project-image[src$=".pdf"]');
+            if (projectImg) {
+                // Get the background color from CSS variables or use a default
+                const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--background-alt') || '#f5f7fa';
+                
+                // Create container for PDF canvas with background styling
+                const container = document.createElement('div');
+                container.className = 'pdf-canvas-container';
+                container.style.width = '100%';
+                container.style.maxHeight = '500px';
+                container.style.marginBottom = '35px';
+                container.style.backgroundColor = bgColor;
+                container.style.borderRadius = '12px';
+                container.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                container.style.minHeight = '300px'; // Provide enough space for the PDF
+                
+                // Replace img with container
+                projectImg.parentNode.replaceChild(container, projectImg);
+                
+                // Use requestAnimationFrame to render after layout is complete
+                requestAnimationFrame(() => {
+                    renderPDFAsImage(projectImg.src, container);
+                });
             }
         });
     </script>

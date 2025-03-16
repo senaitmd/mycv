@@ -367,11 +367,11 @@
                 <!-- Trondheim fire stations -->
                 <div class="card portfolio-item">
                     <!-- Replace with your own thumbnail image -->
-                    <img src="images/dummy.webp" alt="Fire Stations Coverage" class="portfolio-img">
+                    <img src="documents/SD_portfolio_fire_stations.pdf" alt="Fire Stations Coverage" class="portfolio-img">
                 
                     <div class="portfolio-overlay">
-                        <h3 class="lang-en">Fire Stations Coverage Analysis</h3>
-                        <h3 class="lang-no">Analyse av brannstasjoners dekningsgrad</h3>
+                        <h3 class="lang-en">Maximizing Coverage: Fire Stations</h3>
+                        <h3 class="lang-no">Maksimering av dekning: Brannstasjoner</h3>
                 
                         <div class="portfolio-details">
                             <p class="lang-en">
@@ -391,11 +391,11 @@
                 <!-- Trondheim grocery stores -->
                 <div class="card portfolio-item">
                     <!-- Replace with your own thumbnail image -->
-                    <img src="images/dummy.webp" alt="Grocery Store Coverage" class="portfolio-img">
+                    <img src="documents/SD_portfolio_grocery_stores.pdf" alt="Grocery Store Coverage" class="portfolio-img">
                 
                     <div class="portfolio-overlay">
-                        <h3 class="lang-en">Grocery Store Coverage & Minimization</h3>
-                        <h3 class="lang-no">Dagligvarebutikk: Dekning og reduksjon</h3>
+                        <h3 class="lang-en">Maximizing Coverage & Minimizing Facilities: Grocery Stores</h3>
+                        <h3 class="lang-no">Maksimering av dekning og minimering av fasiliteter: Dagligvarebutikker</h3>
                 
                         <div class="portfolio-details">
                             <p class="lang-en">
@@ -486,6 +486,90 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        // Set PDF.js worker path
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        
+        // Function to render PDF as image
+        async function renderPDFAsImage(url, canvasContainer, pageNumber = 1) {
+            try {
+                // Loading task
+                const loadingTask = pdfjsLib.getDocument(url);
+                const pdf = await loadingTask.promise;
+                
+                // Get page
+                const page = await pdf.getPage(pageNumber);
+                
+                // Create canvas element if not exists
+                let canvas = canvasContainer.querySelector('canvas');
+                if (!canvas) {
+                    canvas = document.createElement('canvas');
+                    canvasContainer.appendChild(canvas);
+                }
+                
+                // Prepare canvas
+                const viewport = page.getViewport({ scale: 1.5 });
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                canvas.style.width = '100%';
+                canvas.style.height = '100%';
+                canvas.style.objectFit = 'cover';
+                
+                // Render PDF page into canvas context
+                const context = canvas.getContext('2d');
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                
+                await page.render(renderContext).promise;
+                
+                // Show canvas with gentle fade-in (already visible, just to ensure)
+                canvas.style.opacity = '1';
+                
+                return true;
+            } catch (error) {
+                console.error('Error rendering PDF:', error);
+                return false;
+            }
+        }
+        
+        // Initialize PDF rendering after page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Render PDFs for portfolio items
+            document.querySelectorAll('.portfolio-item').forEach(item => {
+                const img = item.querySelector('img[src$=".pdf"]');
+                if (img) {
+                    // Get the background color from CSS variables or use a default
+                    const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-light') || '#f0f4f8';
+                    
+                    // Create container to hold canvas
+                    const container = document.createElement('div');
+                    container.className = 'pdf-canvas-container';
+                    container.style.width = '100%';
+                    container.style.height = '100%';
+                    container.style.position = 'absolute';
+                    container.style.top = '0';
+                    container.style.left = '0';
+                    container.style.backgroundColor = bgColor; // Set background color while loading
+                    container.style.borderRadius = '15px'; // Match the portfolio-item border-radius
+                    
+                    // Insert container before img
+                    img.parentNode.insertBefore(container, img);
+                    
+                    // Hide original img
+                    img.style.opacity = '0';
+                    img.style.position = 'relative';
+                    
+                    // Use requestAnimationFrame to render after layout is complete
+                    requestAnimationFrame(() => {
+                        renderPDFAsImage(img.src, container);
+                    });
+                }
+            });
+        });
+    </script>
     <script>
         // Mobile menu toggle with improved touch support
         document.addEventListener('DOMContentLoaded', function() {
