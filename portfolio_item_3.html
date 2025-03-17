@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 3-3d | Senait M. Dawede</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .project-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 15px;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .project-header h1 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 2.2rem;
+        }
+
+        .project-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 35px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-content {
+            line-height: 1.8;
+        }
+
+        .project-content h2 {
+            color: var(--primary-color);
+            margin: 25px 0 15px;
+            font-size: 1.6rem;
+        }
+
+        .project-content p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .project-details {
+            margin-top: 45px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            border-top: 1px solid var(--secondary-color);
+            padding-top: 25px;
+        }
+
+        .detail-item h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 35px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .back-button:hover {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        /* Language specific content */
+        .lang-no {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="content-wrapper nav-container">
+            <a href="index.html" class="logo">Senait Dawede</a>
+            <div class="language-selector">
+                <button id="en-btn" class="lang-btn active" aria-label="Switch to English">EN</button>
+                <button id="no-btn" class="lang-btn" aria-label="Switch to Norwegian">NO</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="project-container">
+        <div class="project-header">
+            <h1 class="lang-en">Exercise 3-3d</h1>
+            <h1 class="lang-no">Oppgave 3-3d</h1>
+        </div>
+
+        <img src="images/3-3d.png" alt="Project Image" class="project-image">
+
+        <div class="project-content">
+            <h2 class="lang-en">Description</h2>
+            <h2 class="lang-no">Beskrivelse</h2>
+            
+            <p class="lang-en">
+                Using the public transit network dataset, Grocery/Food shops from the PT dataset, and closest facility network 
+                analysis were used to calculate the minimum travel time from each of the population points in Trondheim to a grocery or 
+                food shop.
+            </p>
+            <p class="lang-no">
+                Ved hjelp av det offentlige transittnettverksdatasettet, dagligvare-/matbutikker fra PT-datasettet og nærmeste anleggsnettverksanalyse ble brukt til å beregne minimum reisetid fra hvert av befolkningens punkter i Trondheim til en dagligvarebutikk eller matbutikk.
+            </p>
+            
+            <p class="lang-en">
+                Grocery and food stores from the PT dataset were imported to facilities, and Pop_gridpoints2019_250 from 
+                Trondheim_region.gdb was imported to the incident by creating a new field called Pop.
+            </p>
+
+            <p class="lang-no">
+                Dagligvare- og matvarebutikker fra PT-datasettet ble importert til anlegg, og Pop_gridpoints2019_250 fra 
+                Trondheim_region.gdb ble importert til hendelsen ved å opprette et nytt felt kalt Pop.
+            </p>
+
+            <div class="project-details">
+                <div class="detail-item">
+                    <h3 class="lang-en">Tools Used</h3>
+                    <h3 class="lang-no">Verktøy brukt</h3>
+                    <p>ArcGIS Pro</p>
+                </div>
+                <div class="detail-item">
+                    <h3 class="lang-en">Project Date</h3>
+                    <h3 class="lang-no">Prosjektdato</h3>
+                    <p>2023</p>
+                </div>
+                <div class="detail-item">
+                    <h3 class="lang-en">Project Type</h3>
+                    <h3 class="lang-no">Prosjekttype</h3>
+                    <p class="lang-en">GIS Network Analysis</p>
+                    <p class="lang-no">GIS Nettverksanalyse</p>
+                </div>
+            </div>
+
+            <a href="index.html#portfolio" class="back-button lang-en">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            <a href="index.html#portfolio" class="back-button lang-no">
+                <i class="fas fa-arrow-left"></i> Tilbake til porteføljen
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Language switcher
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get language buttons
+            const enBtn = document.getElementById('en-btn');
+            const noBtn = document.getElementById('no-btn');
+            
+            // Get all elements with language classes
+            const enElements = document.querySelectorAll('.lang-en');
+            const noElements = document.querySelectorAll('.lang-no');
+            
+            // Check if a language preference is stored
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            setLanguage(savedLanguage);
+            
+            // English button click handler
+            enBtn.addEventListener('click', function() {
+                setLanguage('en');
+                localStorage.setItem('language', 'en');
+            });
+            
+            // Norwegian button click handler
+            noBtn.addEventListener('click', function() {
+                setLanguage('no');
+                localStorage.setItem('language', 'no');
+            });
+            
+            // Function to set the language
+            function setLanguage(lang) {
+                if (lang === 'en') {
+                    // Show English elements, hide Norwegian
+                    enElements.forEach(el => el.style.display = 'block');
+                    noElements.forEach(el => el.style.display = 'none');
+                    
+                    // Update active button
+                    enBtn.classList.add('active');
+                    noBtn.classList.remove('active');
+                    
+                    // Update the html lang attribute
+                    document.documentElement.lang = 'en';
+                } else {
+                    // Show Norwegian elements, hide English
+                    enElements.forEach(el => el.style.display = 'none');
+                    noElements.forEach(el => el.style.display = 'block');
+                    
+                    // Update active button
+                    noBtn.classList.add('active');
+                    enBtn.classList.remove('active');
+                    
+                    // Update the html lang attribute
+                    document.documentElement.lang = 'no';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
