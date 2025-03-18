@@ -146,10 +146,10 @@
                         <p class="lang-no"><i class="fas fa-award"></i> NOKUT/HKDir Godkjent</p>
                     </div>
                     <div class="approval-action">
-                        <a href="documents/NOKUT_approval.pdf" class="approval-btn lang-en" id="approval-btn-en">
+                        <a href="documents/NOKUT_approval.pdf" class="approval-btn lang-en" id="approval-btn-en" onclick="handlePdfLink(event, 'documents/NOKUT_approval.pdf')">
                             <i class="fas fa-certificate"></i> View Approval Letter
                         </a>
-                        <a href="documents/NOKUT_approval.pdf" class="approval-btn lang-no" id="approval-btn-no">
+                        <a href="documents/NOKUT_approval.pdf" class="approval-btn lang-no" id="approval-btn-no" onclick="handlePdfLink(event, 'documents/NOKUT_approval.pdf')">
                             <i class="fas fa-certificate"></i> Se godkjenningsbrev
                         </a>
                     </div>
@@ -191,10 +191,10 @@
                     <div class="continuing-header">
                         <h4 class="lang-en">Continuing Education</h4>
                         <h4 class="lang-no">Videreutdanning</h4>
-                        <a href="documents/NTNU_PhD_Course_GIS_Methods_Grade.pdf" class="certificate-link-inline lang-en">
+                        <a href="documents/NTNU_PhD_Course_GIS_Methods_Grade.pdf" class="certificate-link-inline lang-en" onclick="handlePdfLink(event, 'documents/NTNU_PhD_Course_GIS_Methods_Grade.pdf')">
                             <i class="fas fa-certificate"></i> View Transcript
                         </a>
-                        <a href="documents/NTNU_PhD_Course_GIS_Methods_Grade.pdf" class="certificate-link-inline lang-no">
+                        <a href="documents/NTNU_PhD_Course_GIS_Methods_Grade.pdf" class="certificate-link-inline lang-no" onclick="handlePdfLink(event, 'documents/NTNU_PhD_Course_GIS_Methods_Grade.pdf')">
                             <i class="fas fa-certificate"></i> Se karakterutskrift
                         </a>
                     </div>
@@ -295,27 +295,27 @@
                         <h3 class="lang-en">Certificates</h3>
                         <h3 class="lang-no">Sertifikater</h3>
                         <div class="skills-grid">
-                            <a href="documents/SD_Python_Coursera.pdf" class="skill-icon-item certificate-link">
+                            <a href="documents/SD_Python_Coursera.pdf" class="skill-icon-item certificate-link" onclick="handlePdfLink(event, 'documents/SD_Python_Coursera.pdf')">
                                 <i class="fa-brands fa-python"></i>
                                 <span class="lang-en">Getting Started with Python</span>
                                 <span class="lang-no">Getting Started with Python</span>
                             </a>
-                            <a href="documents/SD_Fundamentals_of_Graphic_Design_Coursera.pdf" class="skill-icon-item certificate-link">
+                            <a href="documents/SD_Fundamentals_of_Graphic_Design_Coursera.pdf" class="skill-icon-item certificate-link" onclick="handlePdfLink(event, 'documents/SD_Fundamentals_of_Graphic_Design_Coursera.pdf')">
                                 <i class="fa-solid fa-palette"></i>
                                 <span class="lang-en">Fundamentals of Graphic Design</span>
                                 <span class="lang-no">Fundamentals of Graphic Design</span>
                             </a>
-                            <a href="documents/SD_Introduction to Typography_Coursera.pdf" class="skill-icon-item certificate-link">
+                            <a href="documents/SD_Introduction to Typography_Coursera.pdf" class="skill-icon-item certificate-link" onclick="handlePdfLink(event, 'documents/SD_Introduction to Typography_Coursera.pdf')">
                                 <i class="fa-solid fa-font"></i>
                                 <span class="lang-en">Introduction to Typography</span>
                                 <span class="lang-no">Introduction to Typography</span>
                             </a>
-                            <a href="documents/SD_Introduction to Imagemaking_Coursera.pdf" class="skill-icon-item certificate-link">
+                            <a href="documents/SD_Introduction to Imagemaking_Coursera.pdf" class="skill-icon-item certificate-link" onclick="handlePdfLink(event, 'documents/SD_Introduction to Imagemaking_Coursera.pdf')">
                                 <i class="fa-solid fa-image"></i>
                                 <span class="lang-en">Introduction to Imagemaking</span>
                                 <span class="lang-no">Introduction to Imagemaking</span>
                             </a>
-                            <a href="documents/SD_Ideas from the History of Graphic Design_Coursera.pdf" class="skill-icon-item certificate-link">
+                            <a href="documents/SD_Ideas from the History of Graphic Design_Coursera.pdf" class="skill-icon-item certificate-link" onclick="handlePdfLink(event, 'documents/SD_Ideas from the History of Graphic Design_Coursera.pdf')">
                                 <i class="fa-solid fa-book-open"></i>
                                 <span class="lang-en">Ideas from the History of Graphic Design</span>
                                 <span class="lang-no">Ideas from the History of Graphic Design</span>
@@ -331,10 +331,10 @@
                                 <span class="lang-no"><strong>AM</strong> Amharisk - Morsmål  |  <strong>EN</strong> Engelsk - Flytende  |  <strong>NO</strong> Norsk - B1-nivå</span>
                             </span>
                             <span>
-                                <a href="documents/SD_Norwegian_Certificate.pdf" class="certificate-link-inline lang-en">
+                                <a href="documents/SD_Norwegian_Certificate.pdf" class="certificate-link-inline lang-en" onclick="handlePdfLink(event, 'documents/SD_Norwegian_Certificate.pdf')">
                                     <i class="fas fa-certificate"></i> View Norwegian Certificate
                                 </a>
-                                <a href="documents/SD_Norwegian_Certificate.pdf" class="certificate-link-inline lang-no">
+                                <a href="documents/SD_Norwegian_Certificate.pdf" class="certificate-link-inline lang-no" onclick="handlePdfLink(event, 'documents/SD_Norwegian_Certificate.pdf')">
                                     <i class="fas fa-certificate"></i> Se norskkursbevis
                                 </a>
                             </span>
@@ -823,6 +823,15 @@ model in GIS.</p>
             pdfLinks.forEach(setupPdfViewer);
         });
 
+        function handlePdfLink(event, pdfUrl) {
+            event.preventDefault();
+            if (window.innerWidth < 769) {
+                window.open(pdfUrl, '_blank');
+            } else {
+                // Only show modal if width >= 769
+                // ...existing floating PDF modal code...
+            }
+        }
     </script>
 
     <style>        
