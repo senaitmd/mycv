@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 3-2b Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Exercise 3: Transit Network Analysis - Part 2b</h1>
+        <p>
+            This section of Exercise 3 focuses on calculating and comparing the number of inhabitants and employees
+            that can be reached within 30 minutes for two different starting times using the public transit network
+            dataset. [cite: 357, 358]
+        </p>
+
+        <h2>Methodology</h2>
+        <p>
+            The public transit network dataset, employees_100 grid, Pop_gridpoints2019_250, and service area
+            analysis were used. Three-point feature classes (City Lade, City Syd Kjpesenter, and NTNU Dragvoll) were
+            imported to the facility layer. The analysis was made using service area network analysis on March 20,
+            2023, at 8:00 a.m. and 8:00 p.m., with a 30-minute cutoff and public transit time set as a cost impedance.
+            [cite: 358, 359, 360, 361]
+        </p>
+        <p>
+            The results included total area coverage within the specified cutoff and time, the total number of inhabitants,
+            and the total number of employees. [cite: 361, 362, 363, 364, 365, 366, 367]
+        </p>
+
+        <h2>Results</h2>
+        <p>
+            The table below shows a summary of the results: [cite: 367]
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Facility</th>
+                    <th>Time</th>
+                    <th>Area Coverage</th>
+                    <th>Inhabitants</th>
+                    <th>Employees</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>City Lade</td>
+                    <td>8:00 AM</td>
+                    <td>[Area Coverage Value 1]</td>
+                    <td>[Inhabitant Count 1]</td>
+                    <td>[Employee Count 1]</td>
+                </tr>
+                <tr>
+                    <td>City Lade</td>
+                    <td>8:00 PM</td>
+                    <td>[Area Coverage Value 2]</td>
+                    <td>[Inhabitant Count 2]</td>
+                    <td>[Employee Count 2]</td>
+                </tr>
+                <tr>
+                    <td>City Syd Kjpesenter</td>
+                    <td>8:00 AM</td>
+                    <td>[Area Coverage Value 3]</td>
+                    <td>[Inhabitant Count 3]</td>
+                    <td>[Employee Count 3]</td>
+                </tr>
+                <tr>
+                    <td>City Syd Kjpesenter</td>
+                    <td>8:00 PM</td>
+                    <td>[Area Coverage Value 4]</td>
+                    <td>[Inhabitant Count 4]</td>
+                    <td>[Employee Count 4]</td>
+                </tr>
+                <tr>
+                    <td>NTNU Dragvoll</td>
+                    <td>8:00 AM</td>
+                    <td>[Area Coverage Value 5]</td>
+                    <td>[Inhabitant Count 5]</td>
+                    <td>[Employee Count 5]</td>
+                </tr>
+                <tr>
+                    <td>NTNU Dragvoll</td>
+                    <td>8:00 PM</td>
+                    <td>[Area Coverage Value 6]</td>
+                    <td>[Inhabitant Count 6]</td>
+                    <td>[Employee Count 6]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>
+            The analysis showed that City Lade and NTNU Dragvoll had higher area coverage and accessibility
+            in the morning, while City Syd Kjpesenter showed the opposite trend. [cite: 367, 368, 369, 370]
+        </p>
+    </div>
+</body>
+
+</html>
