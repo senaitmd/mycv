@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 5 Page 83 Summary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .project-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 15px;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .project-header h1 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 2.2rem;
+        }
+
+        .project-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 35px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-content {
+            line-height: 1.8;
+        }
+
+        .project-content h2 {
+            color: var(--primary-color);
+            margin: 25px 0 15px;
+            font-size: 1.6rem;
+        }
+
+        .project-content p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .project-details {
+            margin-top: 45px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            border-top: 1px solid var(--secondary-color);
+            padding-top: 25px;
+        }
+
+        .detail-item h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 35px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .back-button:hover {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        /* Language specific content */
+        .lang-no {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="content-wrapper nav-container">
+            <a href="index.html" class="logo">Senait Dawede</a>
+            <div class="language-selector">
+                <button id="en-btn" class="lang-btn active" aria-label="Switch to English">EN</button>
+                <button id="no-btn" class="lang-btn" aria-label="Switch to Norwegian">NO</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="project-container">
+        <div class="project-header">
+            <h1 class="lang-en">Exercise 5 - Raster modeling pedestrian accessibility</h1>
+        </div>
+
+        <img src="images/dummy.webp" alt="Project Image" class="project-image">
+
+        <div class="project-content">
+            <h2>Exercise Overview</h2>
+            <p>
+                In this exercise, pedestrian accessibility maps are created using the raster method of path distance.
+                The exercise is done to identify areas that don't have access to the five groceries within 8 minutes for average adults in the sample area.
+            </p>
+
+            <h2>Data and Tools</h2>
+            <p>
+                Different data is used, which includes Cost_rast, Mask, Grocery/Food Shops, Hraster, and Resistance.txt.
+                ArcGIS Pro tools, including the path distance spatial analysis tool and buffer analysis tool, were used.
+            </p>
+
+            <h2>Analysis Process</h2>
+            <p>
+                The different datasets are used as input. The default value of Resistance.txt is used to assign slope and speed to the sample area.
+                The amount of travel time for an average adult citizen with the speed demanded to access certain facilities was calculated using the path distance spatial analysis tool.
+                Buffer analysis tools were also used for adjusting datasets.
+            </p>
+
+            <h2>Key Findings</h2>
+            <p>
+                The areas impossible to access for average adult citizens are delineated.
+                Some places couldn't access the groceries because pedestrians took longer to cross the road with traffic or were not allowed to cross, so they were forced to use a longer path to access them.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Language switcher
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get language buttons
+            const enBtn = document.getElementById('en-btn');
+            const noBtn = document.getElementById('no-btn');
+            
+            // Get all elements with language classes
+            const enElements = document.querySelectorAll('.lang-en');
+            const noElements = document.querySelectorAll('.lang-no');
+            
+            // Check if a language preference is stored
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            setLanguage(savedLanguage);
+            
+            // English button click handler
+            enBtn.addEventListener('click', function() {
+                setLanguage('en');
+                localStorage.setItem('language', 'en');
+            });
+            
+            // Norwegian button click handler
+            noBtn.addEventListener('click', function() {
+                setLanguage('no');
+                localStorage.setItem('language', 'no');
+            });
+            
+            // Function to set the language
+            function setLanguage(lang) {
+                if (lang === 'en') {
+                    // Show English elements, hide Norwegian
+                    enElements.forEach(el => el.style.display = 'block');
+                    noElements.forEach(el => el.style.display = 'none');
+                    
+                    // Update active button
+                    enBtn.classList.add('active');
+                    noBtn.classList.remove('active');
+                    
+                    // Update the html lang attribute
+                    document.documentElement.lang = 'en';
+                } else {
+                    // Show Norwegian elements, hide English
+                    enElements.forEach(el => el.style.display = 'none');
+                    noElements.forEach(el => el.style.display = 'block');
+                    
+                    // Update active button
+                    noBtn.classList.add('active');
+                    enBtn.classList.remove('active');
+                    
+                    // Update the html lang attribute
+                    document.documentElement.lang = 'no';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

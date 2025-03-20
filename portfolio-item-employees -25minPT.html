@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4 Part 3 Summary</title>
+    <style>
+        .project-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 15px;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .project-header h1 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 2.2rem;
+        }
+
+        .project-content {
+            line-height: 1.8;
+        }
+
+        .project-content h2 {
+            color: var(--primary-color);
+            margin: 25px 0 15px;
+            font-size: 1.6rem;
+        }
+
+        .project-content p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .project-details {
+            margin-top: 45px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            border-top: 1px solid var(--secondary-color);
+            padding-top: 25px;
+        }
+
+        .detail-item h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="project-container">
+        <div class="project-header">
+            <h1>Exercise 4 Part 3 Summary</h1>
+        </div>
+
+        <div class="project-content">
+            <h2>Locations to Reach Grocery Store</h2>
+            <p>
+                The study uses the pedestrian network datasets and closest facility network analysis to find locations to reach a grocery store in 7-10 minutes walking.
+                Grocery_Food is imported to facilities, and GridpointTrondheim_250 is imported to incidents.
+                The closest facility analysis is run in a direction towards the facilities by setting an 8-minute cutoff.
+                The result of total time and total length was calculated and added to the route feature under closest facility.
+                The record in the incident was joined with the route record.
+                669 grid points have access to the grocery stores in less than 8 minutes by foot.
+            </p>
+
+            <h2>Locations to Reach Grocery Store by Bike</h2>
+            <p>
+                The study uses the bike network datasets and closest facility network analysis to delineate the population grid points that can access grocery stores within 4-7 minutes by bike.
+                Grocery_Food is imported to facilities, and GridpointTrondheim_250 is imported to incidents.
+                The closest facility analysis is run in a direction towards the facilities by setting a 5-minute cutoff.
+                The result of total time and total length was calculated and added to the route feature under closest facility.
+                The record in the incident was joined with the route record.
+                1458 grid points have access to the grocery stores within 5 minutes by bike.
+            </p>
+
+            <h2>Points with Non-Food Stores Reachable by Car</h2>
+            <p>
+                The car network datasets and OD cost matrix analysis were used to find points with non-food stores reachable within 7-11 minutes by car.
+                GridpointTrondheim_250 was imported to the origin point, and Retail_non_food is imported into destinations in the OD-cost matrix.
+                The OD-cost matrix analysis is run by setting a 10-minute cutoff.
+                The result of total time and total length was calculated and added to the line feature.
+                The calculated total time was adjusted by adding 4 minutes for parking and walking.
+                The line feature within 10 minutes was selected and summarized.
+                2381 grid points have access to non-food stores within 10 minutes by car.
+            </p>
+
+            <h2>Employees Reachable by Public Transit</h2>
+            <p>
+                The public transit network, GridpointTrondheim_250, Employees_100grid, and OD-cost matrix analysis were used to delineate the population grid points that can reach employees within 25 minutes by public transit during morning rush hour.
+                 GridpointTrondheim_250 was imported to the origin point, and Employees_100 grid is imported into destination in the OD-cost matrix.
+                The OD-cost matrix analysis is run using the OD-cost matrix on March 29, 2023, at 7:30 AM.
+                The results were calculated and added to the line feature under the OD-cost matrix.
+                The line feature data is joined with destination.
+                3810 grid points have access to employees within 25 minutes.
+                A maximum of 104564 employees can be reached within the specified period.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
