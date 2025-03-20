@@ -755,75 +755,118 @@ morgenrush (08:00) ved bruk av tjenesteområdeanalyse i GIS..</p>
                     
                     // Get PDF path from href attribute
                     const pdfPath = this.getAttribute('href');
-                    
-                    // Create modal container
-                    const modal = document.createElement('div');
-                    modal.classList.add('pdf-modal');
-                    modal.addEventListener('contextmenu', ev => ev.preventDefault());
-                    
-                    // Create close button
-                    const closeBtn = document.createElement('button');
-                    closeBtn.classList.add('pdf-close-btn');
-                    closeBtn.innerHTML = '&times;';
-                    
-                    // Create PDF embed with fallback
-                    const embed = document.createElement('object');
-                    embed.data = pdfPath + '#toolbar=0&navpanes=0';
-                    embed.type = 'application/pdf';
-                    embed.classList.add('pdf-embed');
-                    embed.addEventListener('contextmenu', ev => ev.preventDefault());
-                    
-                    // Fallback content
-                    const fallbackLink = document.createElement('a');
-                    fallbackLink.href = pdfPath;
-                    fallbackLink.textContent = 'Download PDF';
-                    fallbackLink.target = '_blank';
-                    embed.appendChild(fallbackLink);
-                    
-                    // Assemble modal
-                    modal.appendChild(closeBtn);
-                    modal.appendChild(embed);
-                    document.body.appendChild(modal);
-                    
-                    // Show modal with animation
-                    setTimeout(() => modal.classList.add('show'), 10);
-                    
-                    // Close button event
-                    closeBtn.addEventListener('click', function() {
-                        closeModal();
-                    });
-                    
-                    // Close on outside click
-                    modal.addEventListener('click', function(e) {
-                        if (e.target === modal) {
+
+                    // Check if it's a mobile device
+                    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+                    if (!isMobile) {
+                        // Desktop behavior: Open PDF in modal
+                        
+                        // Create modal container
+                        const modal = document.createElement('div');
+                        modal.classList.add('pdf-modal');
+                        modal.addEventListener('contextmenu', ev => ev.preventDefault());
+                        
+                        // Create close button
+                        const closeBtn = document.createElement('button');
+                        closeBtn.classList.add('pdf-close-btn');
+                        closeBtn.innerHTML = '&times;';
+                        
+                        // Create PDF embed with fallback
+                        const embed = document.createElement('object');
+                        embed.data = pdfPath + '#toolbar=0&navpanes=0';
+                        embed.type = 'application/pdf';
+                        embed.classList.add('pdf-embed');
+                        embed.addEventListener('contextmenu', ev => ev.preventDefault());
+                        
+                        // Fallback content
+                        const fallbackLink = document.createElement('a');
+                        fallbackLink.href = pdfPath;
+                        fallbackLink.textContent = 'Download PDF';
+                        fallbackLink.target = '_blank';
+                        embed.appendChild(fallbackLink);
+                        
+                        // Assemble modal
+                        modal.appendChild(closeBtn);
+                        modal.appendChild(embed);
+                        document.body.appendChild(modal);
+                        
+                        // Show modal with animation
+                        setTimeout(() => modal.classList.add('show'), 10);
+                        
+                        // Close button event
+                        closeBtn.addEventListener('click', function() {
                             closeModal();
-                        }
-                    });
-                    
-                    // Escape key to close
-                    document.addEventListener('keydown', handleEscKey);
-                    
-                    function handleEscKey(e) {
-                        if (e.key === 'Escape') {
-                            closeModal();
-                        }
-                    }
-                    
-                    function closeModal() {
-                        modal.classList.remove('show');
-                        document.removeEventListener('keydown', handleEscKey);
-                        setTimeout(() => {
-                            if (document.body.contains(modal)) {
-                                document.body.removeChild(modal);
+                        });
+                        
+                        // Close on outside click
+                        modal.addEventListener('click', function(e) {
+                            if (e.target === modal) {
+                                closeModal();
                             }
-                        }, 300);
+                        });
+                        
+                        // Escape key to close
+                        document.addEventListener('keydown', handleEscKey);
+                        
+                        function handleEscKey(e) {
+                            if (e.key === 'Escape') {
+                                closeModal();
+                            }
+                        }
+                        
+                        function closeModal() {
+                            modal.classList.remove('show');
+                            document.removeEventListener('keydown', handleEscKey);
+                            setTimeout(() => {
+                                if (document.body.contains(modal)) {
+                                    document.body.removeChild(modal);
+                                }
+                            }, 300);
+                        }
+                    } else {
+                        // Mobile behavior: Open corresponding image in a floating way
+                        const imagePath = pdfPath.replace('documents/', 'images/').replace('.pdf', '.jpg');
+                        
+                        // Create a floating image container
+                        const floatingContainer = document.createElement('div');
+                        floatingContainer.style.position = 'fixed';
+                        floatingContainer.style.top = '50%';
+                        floatingContainer.style.left = '50%';
+                        floatingContainer.style.transform = 'translate(-50%, -50%)';
+                        floatingContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'; // Semi-transparent background
+                        floatingContainer.style.padding = '10px';
+                        floatingContainer.style.zIndex = '1000'; // Ensure it's on top of everything
+                        floatingContainer.style.borderRadius = '5px';
+                        
+                        // Create the image element
+                        const img = document.createElement('img');
+                        img.src = imagePath;
+                        img.style.maxWidth = '90vw'; // Responsive width
+                        img.style.maxHeight = '90vh'; // Responsive height
+                        img.style.display = 'block'; // Remove default inline spacing
+                        
+                        // Create a close button
+                        const closeButton = document.createElement('button');
+                        closeButton.textContent = 'Close';
+                        closeButton.style.marginTop = '10px';
+                        closeButton.onclick = function() {
+                            document.body.removeChild(floatingContainer);
+                        };
+                        
+                        // Append the image and close button to the container
+                        floatingContainer.appendChild(img);
+                        floatingContainer.appendChild(closeButton);
+                        
+                        // Append the container to the body
+                        document.body.appendChild(floatingContainer);
                     }
                 });
             }
             
             // Apply the event listener to all PDF links
             pdfLinks.forEach(setupPdfViewer);
-        });        
+        });
     </script>
 
     <style>        
