@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise 4 Part 3 Summary</title>
+    <meta name="viewport" content="width:device-width, initial-scale=1.0">
+    <title>Exercise 4 - Page 67 Number 3 Summary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
         .project-container {
             max-width: 900px;
@@ -23,6 +26,15 @@
             color: var(--primary-dark);
             margin-bottom: 15px;
             font-size: 2.2rem;
+        }
+
+        .project-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 35px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .project-content {
@@ -54,57 +66,127 @@
             font-size: 1.2rem;
             margin-bottom: 12px;
         }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 35px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .back-button:hover {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        /* Language specific content */
+        .lang-no {
+            display: none;
+        }
     </style>
 </head>
 <body>
+    <nav>
+        <div class="content-wrapper nav-container">
+            <a href="index.html" class="logo">Senait Dawede</a>
+            <div class="language-selector">
+                <button id="en-btn" class="lang-btn active" aria-label="Switch to English">EN</button>
+                <button id="no-btn" class="lang-btn" aria-label="Switch to Norwegian">NO</button>
+            </div>
+        </div>
+    </nav>
+
     <div class="project-container">
         <div class="project-header">
-            <h1>Exercise 4 Part 3 Summary</h1>
+            <h1 class="lang-en">Exercise 4 - Page 67 Number 3 Summary</h1>
         </div>
 
+        <img src="images/dummy.webp" alt="Project Image" class="project-image">
+
         <div class="project-content">
-            <h2>Locations to Reach Grocery Store</h2>
-            <p>
-                The study uses the pedestrian network datasets and closest facility network analysis to find locations to reach a grocery store in 7-10 minutes walking.
-                Grocery_Food is imported to facilities, and GridpointTrondheim_250 is imported to incidents.
-                The closest facility analysis is run in a direction towards the facilities by setting an 8-minute cutoff.
-                The result of total time and total length was calculated and added to the route feature under closest facility.
-                The record in the incident was joined with the route record.
-                669 grid points have access to the grocery stores in less than 8 minutes by foot.
-            </p>
-
-            <h2>Locations to Reach Grocery Store by Bike</h2>
-            <p>
-                The study uses the bike network datasets and closest facility network analysis to delineate the population grid points that can access grocery stores within 4-7 minutes by bike.
-                Grocery_Food is imported to facilities, and GridpointTrondheim_250 is imported to incidents.
-                The closest facility analysis is run in a direction towards the facilities by setting a 5-minute cutoff.
-                The result of total time and total length was calculated and added to the route feature under closest facility.
-                The record in the incident was joined with the route record.
-                1458 grid points have access to the grocery stores within 5 minutes by bike.
-            </p>
-
-            <h2>Points with Non-Food Stores Reachable by Car</h2>
-            <p>
-                The car network datasets and OD cost matrix analysis were used to find points with non-food stores reachable within 7-11 minutes by car.
-                GridpointTrondheim_250 was imported to the origin point, and Retail_non_food is imported into destinations in the OD-cost matrix.
-                The OD-cost matrix analysis is run by setting a 10-minute cutoff.
-                The result of total time and total length was calculated and added to the line feature.
-                The calculated total time was adjusted by adding 4 minutes for parking and walking.
-                The line feature within 10 minutes was selected and summarized.
-                2381 grid points have access to non-food stores within 10 minutes by car.
-            </p>
-
             <h2>Employees Reachable by Public Transit</h2>
             <p>
-                The public transit network, GridpointTrondheim_250, Employees_100grid, and OD-cost matrix analysis were used to delineate the population grid points that can reach employees within 25 minutes by public transit during morning rush hour.
-                 GridpointTrondheim_250 was imported to the origin point, and Employees_100 grid is imported into destination in the OD-cost matrix.
-                The OD-cost matrix analysis is run using the OD-cost matrix on March 29, 2023, at 7:30 AM.
-                The results were calculated and added to the line feature under the OD-cost matrix.
-                The line feature data is joined with destination.
-                3810 grid points have access to employees within 25 minutes.
-                A maximum of 104564 employees can be reached within the specified period.
+                For this case, the public transit network, GridpointTrondheim_250, Employees_100grid, and OD-cost matrix analysis were used to delineate the population grid points that can reach employees within 25 minutes by public transit during morning rush hour. [cite: 1344]
+            </p>
+
+            <h3>Data Preparation</h3>
+            <p>
+                GridpointTrondheim_250 within the 300 m search tolerance was imported to the origin point by creating a field named ABC_ID in the attribute table of the origin. The grid points were mapped to the origin using ABC_ID. Employees_100 grid also imported into destination in the OD-cost matrix within 300 m search tolerance.
+            </p>
+
+            <h3>Analysis</h3>
+            <p>
+                Then the OD-cost matrix analysis is run using the OD-cost matrix on March 29, 2023, at 7:30 AM, with the public transit time set as a cost impedance. Then the results of total public transit time, total walking time, and total length were calculated and added to the line feature under the OD-cost matrix. Then the line feature data is joined with destination using destination ID as the input join field and object ID as the join table field. In the joining process, the input table has 629573 records, and the join table has 2533 records. One to one match 629573 records. Then the sum of employees summarized from the line feature based on origin ID Then the line statistic table, which summarizes the data of employees joined with origins using origin ID as the input join field and object ID as the join table field, In the joining process, the input table has 3810 records, and the join table has 6352 records. A one-to-one has 3810 records.
+            </p>
+
+            <h3>Results</h3>
+            <p>
+                It means 3810 grid points have access to employees within 25 minutes. From the results, it is shown that 3810 employees’ grid and a maximum of 104564 employees can be reached within the specified period. Most of the employees are located in the city center, as shown on the map.
             </p>
         </div>
     </div>
+
+    <script>
+        // Language switcher
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get language buttons
+            const enBtn = document.getElementById('en-btn');
+            const noBtn = document.getElementById('no-btn');
+            
+            // Get all elements with language classes
+            const enElements = document.querySelectorAll('.lang-en');
+            const noElements = document.querySelectorAll('.lang-no');
+            
+            // Check if a language preference is stored
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            setLanguage(savedLanguage);
+            
+            // English button click handler
+            enBtn.addEventListener('click', function() {
+                setLanguage('en');
+                localStorage.setItem('language', 'en');
+            });
+            
+            // Norwegian button click handler
+            noBtn.addEventListener('click', function() {
+                setLanguage('no');
+                localStorage.setItem('language', 'no');
+            });
+            
+            // Function to set the language
+            function setLanguage(lang) {
+                if (lang === 'en') {
+                    // Show English elements, hide Norwegian
+                    enElements.forEach(el => el.style.display = 'block');
+                    noElements.forEach(el => el.style.display = 'none');
+                    
+                    // Update active button
+                    enBtn.classList.add('active');
+                    noBtn.classList.remove('active');
+                    
+                    // Update the html lang attribute
+                    document.documentElement.lang = 'en';
+                } else {
+                    // Show Norwegian elements, hide English
+                    enElements.forEach(el => el.style.display = 'none');
+                    noElements.forEach(el => el.style.display = 'block');
+                    
+                    // Update active button
+                    noBtn.classList.add('active');
+                    enBtn.classList.remove('active');
+                    
+                    // Update the html lang attribute
+                    document.documentElement.lang = 'no';
+                }
+            }
+        });
+    </script>
 </body>
 </html>
