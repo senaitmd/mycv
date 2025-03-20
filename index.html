@@ -825,13 +825,71 @@ morgenrush (08:00) ved bruk av tjenesteområdeanalyse i GIS..</p>
             pdfLinks.forEach(setupPdfViewer);
         });
 
+        // Replace the handlePdfLink function with one that always uses the modal
         function handlePdfLink(event, pdfUrl) {
             event.preventDefault();
-            if (window.innerWidth < 769) {
-                window.open(pdfUrl, '_blank');
-            } else {
-                // Only show modal if width >= 769
-                // ...existing floating PDF modal code...
+            
+            // Create modal container
+            const modal = document.createElement('div');
+            modal.classList.add('pdf-modal');
+            modal.addEventListener('contextmenu', ev => ev.preventDefault());
+            
+            // Create close button
+            const closeBtn = document.createElement('button');
+            closeBtn.classList.add('pdf-close-btn');
+            closeBtn.innerHTML = '&times;';
+            
+            // Create PDF embed with fallback
+            const embed = document.createElement('object');
+            embed.data = pdfUrl + '#toolbar=0&navpanes=0';
+            embed.type = 'application/pdf';
+            embed.classList.add('pdf-embed');
+            embed.addEventListener('contextmenu', ev => ev.preventDefault());
+            
+            // Fallback content
+            const fallbackLink = document.createElement('a');
+            fallbackLink.href = pdfUrl;
+            fallbackLink.textContent = 'Download PDF';
+            fallbackLink.target = '_blank';
+            embed.appendChild(fallbackLink);
+            
+            // Assemble modal
+            modal.appendChild(closeBtn);
+            modal.appendChild(embed);
+            document.body.appendChild(modal);
+            
+            // Show modal with animation
+            setTimeout(() => modal.classList.add('show'), 10);
+            
+            // Close button event
+            closeBtn.addEventListener('click', function() {
+                closeModal();
+            });
+            
+            // Close on outside click
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // Escape key to close
+            document.addEventListener('keydown', handleEscKey);
+            
+            function handleEscKey(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            }
+            
+            function closeModal() {
+                modal.classList.remove('show');
+                document.removeEventListener('keydown', handleEscKey);
+                setTimeout(() => {
+                    if (document.body.contains(modal)) {
+                        document.body.removeChild(modal);
+                    }
+                }, 300);
             }
         }
     </script>
