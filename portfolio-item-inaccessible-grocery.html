@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise 5 Page 83 Summary</title>
+    <title>Pedestrian Accessibility Analysis</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -105,36 +105,59 @@
 
     <div class="project-container">
         <div class="project-header">
-            <h1 class="lang-en">Exercise 5 - Raster modeling pedestrian accessibility</h1>
+            <h1 class="lang-en">Pedestrian Accessibility Analysis</h1>
+            <h1 class="lang-no">Tilgjengelighetsanalyse for fotgjengere</h1>
         </div>
 
-        <img src="images/dummy.webp" alt="Project Image" class="project-image">
+        <img src="images/SD_portfolio_inaccessible_grocery.png" alt="Project Image" class="project-image">
 
         <div class="project-content">
-            <h2>Exercise Overview</h2>
-            <p>
-                In this exercise, pedestrian accessibility maps are created using the raster method of path distance.
-                The exercise is done to identify areas that don't have access to the five groceries within 8 minutes for average adults in the sample area.
+            <h2 class="lang-en">Project Overview</h2>
+            <h2 class="lang-no">Prosjektoversikt</h2>
+            
+            <p class="lang-en">
+                The study focused on creating pedestrian accessibility maps using the raster method of path distance.
+                This method calculates travel time for different pedestrian types to access specific facilities.
+            </p>
+            <p class="lang-en">
+                The analysis delineates areas where pedestrians, such as average adults and senior citizens, cannot reach certain facilities within a specified time.
+                The study examines access to grocery shops, primary schools, and high-frequency bus stops.
+            </p>
+            
+            <p class="lang-no">
+                Studien fokuserte på å lage tilgjengelegheitskart for fotgjengarar ved hjelp av rastermetoden for stiavstand.
+                Denne metoden berekner reisetid for ulike fotgjengartypar for å få tilgang til spesifikke fasilitetar.
+            </p>
+            <p class="lang-no">
+                Analysen skildrar område der fotgjengarar, som gjennomsnittsvaksne og eldre, ikkje kan nå visse fasilitetar innanfor ein spesifisert tid.
+                Studien undersøker tilgang til daglegvarebutikkar, barneskular og høgfrekvente busstopp.
             </p>
 
-            <h2>Data and Tools</h2>
-            <p>
-                Different data is used, which includes Cost_rast, Mask, Grocery/Food Shops, Hraster, and Resistance.txt.
-                ArcGIS Pro tools, including the path distance spatial analysis tool and buffer analysis tool, were used.
-            </p>
+            <div class="project-details">
+                <div class="detail-item">
+                    <h3 class="lang-en">Tools Used</h3>
+                    <h3 class="lang-no">Verktøy brukt</h3>
+                    <p>ArcGIS Pro, Path Distance Spatial Analysis tool, Buffer Analysis tool</p>
+                </div>
+                <div class="detail-item">
+                    <h3 class="lang-en">Project Date</h3>
+                    <h3 class="lang-no">Prosjektdato</h3>
+                    <p>2023</p>
+                </div>
+                <div class="detail-item">
+                    <h3 class="lang-en">Project Type</h3>
+                    <h3 class="lang-no">Prosjekttype</h3>
+                    <p class="lang-en">Accessibility Analysis, Raster Modeling</p>
+                    <p class="lang-no">Tilgjengelegheitsanalyse, Rastermodellering</p>
+                </div>
+            </div>
 
-            <h2>Analysis Process</h2>
-            <p>
-                The different datasets are used as input. The default value of Resistance.txt is used to assign slope and speed to the sample area.
-                The amount of travel time for an average adult citizen with the speed demanded to access certain facilities was calculated using the path distance spatial analysis tool.
-                Buffer analysis tools were also used for adjusting datasets.
-            </p>
-
-            <h2>Key Findings</h2>
-            <p>
-                The areas impossible to access for average adult citizens are delineated.
-                Some places couldn't access the groceries because pedestrians took longer to cross the road with traffic or were not allowed to cross, so they were forced to use a longer path to access them.
-            </p>
+            <a href="index.html#portfolio" class="back-button lang-en">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            <a href="index.html#portfolio" class="back-button lang-no">
+                <i class="fas fa-arrow-left"></i> Tilbake til porteføljen
+            </a>
         </div>
     </div>
 
@@ -192,6 +215,9 @@
                 }
             }
         });
+    </script>
+</body>
+</html>
     </script>
 </body>
 </html>
