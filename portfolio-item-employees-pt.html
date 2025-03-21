@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width:device-width, initial-scale=1.0">
-    <title>Employees reached by public transit within 25min </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIS Analysis of Employee Accessibility by Public Transit</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -105,31 +105,57 @@
 
     <div class="project-container">
         <div class="project-header">
-            <h1 class="lang-en">Employees reached by public transit within 25min</h1>
+            <h1 class="lang-en">Project Details</h1>
+            <h1 class="lang-no">Prosjektdetaljer</h1>
         </div>
 
-        <img src="images/SD-portfolio-employees-pt.png" alt="Project Image" class="project-image">
+        <img src="images/SD_portfolio_employees_pt.png" alt="Project Image" class="project-image">
 
         <div class="project-content">
-            <h2>Employees Reachable by Public Transit</h2>
-            <p>
-                For this case, the public transit network, GridpointTrondheim_250, Employees_100grid, and OD-cost matrix analysis were used to delineate the population grid points that can reach employees within 25 minutes by public transit during morning rush hour. [cite: 1344]
+            <h2 class="lang-en">Project Overview</h2>
+            <h2 class="lang-no">Prosjektoversikt</h2>
+            
+            <p class="lang-en">
+                The study analyzed how many employees can be reached within 25 minutes by public transit during the morning rush hour, specifically on a Wednesday at 07:30[cite: 1343, 1344].
+                The analysis involved using public transit network data, population grid points, and Origin-Destination Cost Matrix analysis[cite: 1344, 1345, 1346, 1347, 1348, 1349].
+            </p>
+            <p class="lang-en">
+                The results show the number of grid points with access to employees within the specified timeframe, aiding in understanding public transit effectiveness for commuting[cite: 1353, 1354].
+            </p>
+            
+            <p class="lang-no">
+                Studien analyserte kor mange tilsette som kan nåast innan 25 minutt med offentleg transport i morgonrushet, spesifikt på ein onsdag klokka 07:30[cite: 1343, 1344].
+                Analysen involverte bruk av data frå offentleg transportnettverk, befolkningsnettpunkt og Origin-Destination Cost Matrix-analyse[cite: 1344, 1345, 1346, 1347, 1348, 1349].
+            </p>
+            <p class="lang-no">
+                Resultata viser talet på rutenettpunkt med tilgang til tilsette innanfor den spesifiserte tidsramma, og bidrar til å forstå effektiviteten av offentleg transport for pendling[cite: 1353, 1354].
             </p>
 
-            <h3>Data Preparation</h3>
-            <p>
-                GridpointTrondheim_250 within the 300 m search tolerance was imported to the origin point by creating a field named ABC_ID in the attribute table of the origin. The grid points were mapped to the origin using ABC_ID. Employees_100 grid also imported into destination in the OD-cost matrix within 300 m search tolerance.
-            </p>
+            <div class="project-details">
+                <div class="detail-item">
+                    <h3 class="lang-en">Tools Used</h3>
+                    <h3 class="lang-no">Verktøy brukt</h3>
+                    <p>ArcGIS Pro, OD Cost Matrix Analysis</p>
+                </div>
+                <div class="detail-item">
+                    <h3 class="lang-en">Project Date</h3>
+                    <h3 class="lang-no">Prosjektdato</h3>
+                    <p>2023</p>
+                </div>
+                <div class="detail-item">
+                    <h3 class="lang-en">Project Type</h3>
+                    <h3 class="lang-no">Prosjekttype</h3>
+                    <p class="lang-en">Accessibility Analysis</p>
+                    <p class="lang-no">Tilgjengelegheitsanalyse</p>
+                </div>
+            </div>
 
-            <h3>Analysis</h3>
-            <p>
-                Then the OD-cost matrix analysis is run using the OD-cost matrix on March 29, 2023, at 7:30 AM, with the public transit time set as a cost impedance. Then the results of total public transit time, total walking time, and total length were calculated and added to the line feature under the OD-cost matrix. Then the line feature data is joined with destination using destination ID as the input join field and object ID as the join table field. In the joining process, the input table has 629573 records, and the join table has 2533 records. One to one match 629573 records. Then the sum of employees summarized from the line feature based on origin ID Then the line statistic table, which summarizes the data of employees joined with origins using origin ID as the input join field and object ID as the join table field, In the joining process, the input table has 3810 records, and the join table has 6352 records. A one-to-one has 3810 records.
-            </p>
-
-            <h3>Results</h3>
-            <p>
-                It means 3810 grid points have access to employees within 25 minutes. From the results, it is shown that 3810 employees’ grid and a maximum of 104564 employees can be reached within the specified period. Most of the employees are located in the city center, as shown on the map.
-            </p>
+            <a href="index.html#portfolio" class="back-button lang-en">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            <a href="index.html#portfolio" class="back-button lang-no">
+                <i class="fas fa-arrow-left"></i> Tilbake til porteføljen
+            </a>
         </div>
     </div>
 
@@ -187,6 +213,9 @@
                 }
             }
         });
+    </script>
+</body>
+</html>
     </script>
 </body>
 </html>
