@@ -883,41 +883,95 @@
                             }, 300);
                         }
                     } else {
-                        // Mobile behavior: Open corresponding image in a floating way
+                                                // Mobile behavior: Open corresponding image in a floating way
                         const imagePath = pdfPath.replace('documents/', 'images/').replace('.pdf', '.jpg');
                         
                         // Create a floating image container
                         const floatingContainer = document.createElement('div');
+                        floatingContainer.classList.add('floating-image-modal');
                         floatingContainer.style.position = 'fixed';
-                        floatingContainer.style.top = '50%';
-                        floatingContainer.style.left = '50%';
-                        floatingContainer.style.transform = 'translate(-50%, -50%)';
-                        floatingContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'; // Semi-transparent background
-                        floatingContainer.style.padding = '10px';
-                        floatingContainer.style.zIndex = '1000'; // Ensure it's on top of everything
-                        floatingContainer.style.borderRadius = '5px';
+                        floatingContainer.style.top = '0';
+                        floatingContainer.style.left = '0';
+                        floatingContainer.style.width = '100%';
+                        floatingContainer.style.height = '100%';
+                        floatingContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                        floatingContainer.style.zIndex = '1000';
+                        floatingContainer.style.display = 'flex';
+                        floatingContainer.style.flexDirection = 'column';
+                        floatingContainer.style.alignItems = 'center';
+                        floatingContainer.style.justifyContent = 'center';
+                        
+                        // Create image container (to prevent clicks on image from closing)
+                        const imageContainer = document.createElement('div');
+                        imageContainer.style.position = 'relative';
+                        imageContainer.style.maxWidth = '90vw';
+                        imageContainer.style.maxHeight = '90vh';
+                        imageContainer.style.padding = '10px';
+                        imageContainer.style.borderRadius = '5px';
                         
                         // Create the image element
                         const img = document.createElement('img');
                         img.src = imagePath;
-                        img.style.maxWidth = '90vw'; // Responsive width
-                        img.style.maxHeight = '90vh'; // Responsive height
-                        img.style.display = 'block'; // Remove default inline spacing
+                        img.style.maxWidth = '100%';
+                        img.style.maxHeight = '100%';
+                        img.style.display = 'block';
+                        img.style.borderRadius = '5px';
                         
-                        // Create a close button
-                        const closeButton = document.createElement('button');
-                        closeButton.textContent = 'Close';
-                        closeButton.style.marginTop = '10px';
-                        closeButton.onclick = function() {
-                            document.body.removeChild(floatingContainer);
-                        };
+                        // Create a close button (X in top right corner)
+                        const closeX = document.createElement('div');
+                        closeX.innerHTML = '&times;'; // × symbol
+                        closeX.style.position = 'absolute';
+                        closeX.style.top = '15px';
+                        closeX.style.right = '15px';
+                        closeX.style.fontSize = '28px';
+                        closeX.style.fontWeight = 'bold';
+                        closeX.style.color = 'white';
+                        closeX.style.cursor = 'pointer';
+                        closeX.style.width = '30px';
+                        closeX.style.height = '30px';
+                        closeX.style.lineHeight = '30px';
+                        closeX.style.textAlign = 'center';
+                        closeX.style.zIndex = '1001';
                         
-                        // Append the image and close button to the container
-                        floatingContainer.appendChild(img);
-                        floatingContainer.appendChild(closeButton);
-                        
-                        // Append the container to the body
+                        // Append elements
+                        imageContainer.appendChild(img);
+                        floatingContainer.appendChild(imageContainer);
+                        floatingContainer.appendChild(closeX);
                         document.body.appendChild(floatingContainer);
+                        
+                        // Show modal with animation (similar to desktop version)
+                        setTimeout(() => {
+                            floatingContainer.style.opacity = '1';
+                        }, 10);
+                        
+                        // Close handlers
+                        function closeFloatingImage() {
+                            floatingContainer.style.opacity = '0';
+                            setTimeout(() => {
+                                if (document.body.contains(floatingContainer)) {
+                                    document.body.removeChild(floatingContainer);
+                                }
+                            }, 300);
+                            document.removeEventListener('keydown', handleEscKeyMobile);
+                        }
+                        
+                        // Close on X click
+                        closeX.addEventListener('click', closeFloatingImage);
+                        
+                        // Close on outside click
+                        floatingContainer.addEventListener('click', function(e) {
+                            if (e.target === floatingContainer) {
+                                closeFloatingImage();
+                            }
+                        });
+                        
+                        // Escape key to close
+                        function handleEscKeyMobile(e) {
+                            if (e.key === 'Escape') {
+                                closeFloatingImage();
+                            }
+                        }
+                        document.addEventListener('keydown', handleEscKeyMobile);
                     }
                 });
             }
