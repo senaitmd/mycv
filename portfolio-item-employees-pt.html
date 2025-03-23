@@ -29,9 +29,10 @@
         }
 
         .project-image {
-            width: 100%;
-            max-height: 500px;
-            object-fit: cover;
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            /* Removed object-fit: cover and max-height */
             border-radius: 12px;
             margin-bottom: 35px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -105,8 +106,8 @@
 
     <div class="project-container">
         <div class="project-header">
-            <h1 class="lang-en">Employees reached by public transit within 25minutes</h1>
-            <h1 class="lang-no">Ansatte nås med offentlig transport innen 25 minutter</h1>
+            <h1 class="lang-en">Employees Served by Public Transit in Under 25 Minutes</h1>
+            <h1 class="lang-no">Ansatte betjent av offentlig transport på under 25 minutter</h1>
         </div>
 
         <img src="images/SD_portfolio_employees_pt.png" alt="Project Image" class="project-image">
@@ -124,7 +125,7 @@
             </p>
             
             <p class="lang-no">
-                Studien analyserte kor mange tilsette som kan nåast innan 25 minutt med offentleg transport i morgonrushet, spesifikt på ein onsdag klokka 07:30.
+                Studien analyserte kor mange tilsette som kan nåes innen 25 minutter med offentlig transport i morgonrushet, spesifikt på ein onsdag klokka 07:30.
                 Analysen involverte bruk av data frå offentleg transportnettverk, befolkningsnettpunkt og Origin-Destination Cost Matrix-analyse.
             </p>
             <p class="lang-no">
@@ -146,7 +147,7 @@
                     <h3 class="lang-en">Project Type</h3>
                     <h3 class="lang-no">Prosjekttype</h3>
                     <p class="lang-en">Accessibility Analysis</p>
-                    <p class="lang-no">Tilgjengelegheitsanalyse</p>
+                    <p class="lang-no">Tilgjengelighetsanalyse</p>
                 </div>
             </div>
 
