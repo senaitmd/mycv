@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Development Plan for City Districts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .project-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 15px;
+        }
+        .project-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        .project-header h1 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 2.2rem;
+        }
+        .project-image {
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 35px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .project-content {
+            line-height: 1.8;
+        }
+        .project-content h2 {
+            color: var(--primary-color);
+            margin: 25px 0 15px;
+            font-size: 1.6rem;
+        }
+        .project-content p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        .project-details {
+            margin-top: 45px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            border-top: 1px solid var(--secondary-color);
+            padding-top: 25px;
+        }
+        .detail-item h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 35px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .back-button:hover {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="content-wrapper nav-container">
+            <a href="index.html" class="logo">Senait Dawede</a>
+            <div class="language-selector">
+                <button id="en-btn" class="lang-btn active" aria-label="Switch to English">EN</button>
+                <button id="no-btn" class="lang-btn" aria-label="Switch to Norwegian">NO</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="project-container">
+        <div class="project-header">
+            <!-- English & Norwegian headings -->
+            <h1 class="lang-en">Local Development Plan for City Districts</h1>
+            <h1 class="lang-no">Lokale utviklingsplaner for bydeler</h1>
+        </div>
+
+        <!-- Replace with your own image -->
+        <img src="images/ldp.webp" alt="Internship Addis Ababa" class="project-image">
+
+        <div class="project-content">
+
+            <!-- Project Overview heading -->
+            <h2 class="lang-en">Project Overview</h2>
+            <h2 class="lang-no">Prosjektoversikt</h2>
+
+            <!-- English paragraphs -->
+            <p class="lang-en">
+                This internship was carried out with the Addis Ababa City Administration from October 2010 
+                to January 2011. The main task involved preparing two Local Development Plans (LDP) for selected 
+                city districts, aiming to guide future urban growth and infrastructure improvement.
+            </p>
+            <p class="lang-en">
+                During the internship, responsibilities included data collection, stakeholder engagement, 
+                and drafting the LDP documents. The experience provided insights into policy-making, 
+                urban design, and strategic planning processes within a rapidly growing city environment.
+            </p>
+
+            <!-- Norwegian paragraphs -->
+            <p class="lang-no">
+                Denne praksisperioden ble gjennomført med Addis Abeba byadministrasjon fra oktober 2010 
+                til januar 2011. Hovedoppgaven bestod i å utarbeide to lokale utviklingsplaner (LDP) for utvalgte 
+                bydeler, med mål om å veilede fremtidig byvekst og infrastrukturforbedring.
+            </p>
+            <p class="lang-no">
+                Under praksisoppholdet var ansvaret blant annet datainnsamling, samarbeid med interessenter 
+                og utforming av LDP-dokumenter. Erfaringen ga innsikt i politikkutforming, bydesign og strategisk 
+                planlegging i et bymiljø i rask vekst.
+            </p>
+
+            <!-- Project Details -->
+            <div class="project-details">
+                <div class="detail-item">
+                    <h3 class="lang-en">Tools Used</h3>
+                    <h3 class="lang-no">Verktøy brukt</h3>
+                    <p class="lang-en">AutoCAD, ArcGIS</p>
+                    <p class="lang-no">AutoCAD, ArcGIS</p>
+                </div>
+                <div class="detail-item">
+                    <h3 class="lang-en">Project Date</h3>
+                    <h3 class="lang-no">Prosjektdato</h3>
+                    <p>Oct. 2010 – Jan. 2011</p>
+                </div>
+                <div class="detail-item">
+                    <h3 class="lang-en">Project Type</h3>
+                    <h3 class="lang-no">Prosjekttype</h3>
+                    <p class="lang-en">Internship</p>
+                    <p class="lang-no">Praksis</p>
+                </div>
+            </div>
+
+            <!-- Back to Portfolio -->
+            <a href="index.html#portfolio" class="back-button lang-en">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            <a href="index.html#portfolio" class="back-button lang-no">
+                <i class="fas fa-arrow-left"></i> Tilbake til porteføljen
+            </a>
+        </div>
+    </div>
+
+    <!-- Language switcher script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const enBtn = document.getElementById('en-btn');
+            const noBtn = document.getElementById('no-btn');
+            const enElements = document.querySelectorAll('.lang-en');
+            const noElements = document.querySelectorAll('.lang-no');
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            setLanguage(savedLanguage);
+
+            enBtn.addEventListener('click', function() {
+                setLanguage('en');
+                localStorage.setItem('language', 'en');
+            });
+            noBtn.addEventListener('click', function() {
+                setLanguage('no');
+                localStorage.setItem('language', 'no');
+            });
+
+            function setLanguage(lang) {
+                if (lang === 'en') {
+                    enElements.forEach(el => el.style.display = 'block');
+                    noElements.forEach(el => el.style.display = 'none');
+                    enBtn.classList.add('active');
+                    noBtn.classList.remove('active');
+                    document.documentElement.lang = 'en';
+                } else {
+                    enElements.forEach(el => el.style.display = 'none');
+                    noElements.forEach(el => el.style.display = 'block');
+                    noBtn.classList.add('active');
+                    enBtn.classList.remove('active');
+                    document.documentElement.lang = 'no';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
