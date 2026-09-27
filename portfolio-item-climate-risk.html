@@ -3,226 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi-Hazard Climate Risk Assessment for Norway | Senait M. Dawede</title>
+    <title>Multi-Hazard Climate Risk Assessment for Norway's Energy Sector | Senait M. Dawede</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         .project-container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 40px auto;
-            padding: 40px;
+            padding: 30px;
             background-color: var(--white);
             box-shadow: var(--shadow);
-            border-radius: 16px;
+            border-radius: 15px;
         }
-
-        .project-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(16, 185, 129, 0.1));
-            color: var(--primary-color);
-            border: 1px solid rgba(79, 70, 229, 0.25);
-            font-size: 0.88rem;
-            font-weight: 700;
-            padding: 6px 16px;
-            border-radius: 50px;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
         .project-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
-
         .project-header h1 {
             color: var(--primary-dark);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-size: 2.2rem;
-            line-height: 1.25;
         }
-
-        .project-header p.subtitle {
-            color: var(--text-light);
-            font-size: 1.15rem;
-            font-weight: 500;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .project-image {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            border: 1px solid rgba(0,0,0,0.05);
-            display: block;
-        }
-
-        .figure-caption {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            font-style: italic;
-            margin-bottom: 35px;
-            padding: 0 10px;
-        }
-
         .project-content {
-            line-height: 1.85;
+            line-height: 1.8;
         }
-
         .project-content h2 {
             color: var(--primary-color);
-            margin: 40px 0 18px;
-            font-size: 1.65rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border-bottom: 2px solid var(--background-alt);
-            padding-bottom: 8px;
+            margin: 25px 0 15px;
+            font-size: 1.6rem;
         }
-
-        .project-content h3 {
-            color: var(--primary-dark);
-            margin: 25px 0 12px;
-            font-size: 1.25rem;
-        }
-
         .project-content p {
-            margin-bottom: 18px;
+            margin-bottom: 20px;
             font-size: 1.05rem;
-            color: var(--text-color);
         }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin: 25px 0 35px;
+        .project-content ol,
+        .project-content ul {
+            margin: 0 0 20px 1.4rem;
+            font-size: 1.05rem;
         }
-
-        .feature-card {
-            background-color: var(--background-alt);
-            border-radius: 12px;
-            padding: 22px;
-            border-left: 4px solid var(--primary-color);
-            box-shadow: var(--shadow-sm);
+        .project-content ol {
+            list-style: decimal;
         }
-
-        .feature-card h4 {
-            color: var(--primary-dark);
-            font-size: 1.1rem;
+        .project-content ul {
+            list-style: disc;
+        }
+        .project-content li {
             margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
-
-        .feature-card p {
-            font-size: 0.95rem;
-            margin-bottom: 0;
+        /* Figures: maps and charts with captions */
+        .figure {
+            margin: 0 0 35px;
+        }
+        .figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .figure-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .figure-portrait {
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .figure-caption {
+            margin-top: 12px;
+            text-align: center;
+            font-size: 0.9rem;
+            line-height: 1.5;
             color: var(--text-light);
-            line-height: 1.6;
         }
-
-        .stat-banner {
+        .project-details {
+            margin-top: 45px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
-            color: var(--white);
-            padding: 25px;
-            border-radius: 12px;
-            margin: 30px 0;
-            text-align: center;
-        }
-
-        .stat-item .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            font-family: var(--heading-font);
-            color: #fbbf24;
-            display: block;
-        }
-
-        .stat-item .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            margin-top: 4px;
-        }
-
-        .callout-box {
-            background-color: rgba(79, 70, 229, 0.05);
-            border: 1px solid rgba(79, 70, 229, 0.2);
-            border-radius: 10px;
-            padding: 20px 24px;
-            margin: 25px 0;
-        }
-
-        .callout-box strong {
-            color: var(--primary-dark);
-        }
-
-        .project-details {
-            margin-top: 50px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 25px;
-            border-top: 2px solid var(--background-alt);
-            padding-top: 30px;
+            border-top: 1px solid var(--secondary-color);
+            padding-top: 25px;
         }
-
         .detail-item h3 {
             color: var(--primary-color);
-            font-size: 1.1rem;
-            margin-bottom: 8px;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
         }
-
-        .detail-item p {
-            font-size: 0.98rem;
-            color: var(--text-light);
-            margin-bottom: 0;
-        }
-
         .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 40px;
+            display: inline-block;
+            margin-top: 35px;
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: var(--white);
-            padding: 12px 28px;
+            padding: 12px 24px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-
         .back-button:hover {
             background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark) 100%);
             transform: translateY(-3px);
-            box-shadow: 0 6px 18px rgba(245, 158, 11, 0.35);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
         }
-
-        /* Language specific content */
-        .lang-no {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
             .project-container {
-                padding: 20px;
                 margin: 20px 10px;
+                padding: 20px;
             }
             .project-header h1 {
                 font-size: 1.7rem;
             }
-            .feature-grid {
+            .figure-pair {
                 grid-template-columns: 1fr;
             }
         }
@@ -241,266 +136,222 @@
     </nav>
 
     <div class="project-container">
-        <!-- Header Section -->
         <div class="project-header">
-            <span class="project-badge lang-en">MSc Research &bull; Climate GIS</span>
-            <span class="project-badge lang-no">Masteroppgave / GIS-forskning &bull; Klima-GIS</span>
-
-            <h1 class="lang-en">Multi-Hazard Climate Risk Assessment for Norway</h1>
-            <h1 class="lang-no">Nasjonal multirisiko klimavurdering for Norge</h1>
-
-            <p class="subtitle lang-en">A GIS-based raster overlay and zonal vulnerability assessment of critical energy infrastructure across 2&deg;C, 4&deg;C, and AMOC collapse scenarios.</p>
-            <p class="subtitle lang-no">En GIS-basert rasteroverleggs- og fylkesvis s&aring;rbarhetsanalyse av kritisk energiinfrastruktur under 2&deg;C, 4&deg;C og AMOC-kollapsscenarier.</p>
+            <!-- English & Norwegian headings -->
+            <h1 class="lang-en">Multi-Hazard Climate Risk Assessment for Norway's Energy Sector</h1>
+            <h1 class="lang-no">Klimarisiko fra flere naturfarer for energisektoren i Norge</h1>
         </div>
 
-        <!-- Featured Map Image -->
-        <img src="images/SD_climate_risk_county_map.png" alt="County-Level Multi-Hazard Climate Risk Map of Norway" class="project-image">
-        <div class="figure-caption lang-en">Figure 1: Mean multi-hazard risk index for Norway's energy sector aggregated by county (Fylke) under the 4&deg;C + AMOC collapse scenario at 1 km spatial resolution (ETRS89 / UTM 33N).</div>
-        <div class="figure-caption lang-no">Figur 1: Gjennomsnittlig multirisikoindeks for Norges energisektor aggregert p&aring; fylkesniv&aring; under 4&deg;C + AMOC-kollapsscenariet med 1 km romlig oppl&oslash;sning (ETRS89 / UTM 33N).</div>
-
-        <!-- Key Stats Banner -->
-        <div class="stat-banner">
-            <div class="stat-item">
-                <span class="stat-number">1 km</span>
-                <span class="stat-label lang-en">Raster Grid Resolution</span>
-                <span class="stat-label lang-no">Raster rutenettoppl&oslash;sning</span>
+        <!-- Main result: county map and 1 km risk surface (click to open full size) -->
+        <div class="figure">
+            <div class="figure-pair">
+                <a href="images/SD_climate_risk_county_map.png" target="_blank" rel="noopener">
+                    <img src="images/SD_climate_risk_county_map.png" alt="Map of mean multi-hazard climate risk to the energy sector per Norwegian county under 4°C + AMOC collapse">
+                </a>
+                <a href="images/SD_climate_risk_raster_map.png" target="_blank" rel="noopener">
+                    <img src="images/SD_climate_risk_raster_map.png" alt="Map of the continuous 1 km multi-hazard climate risk surface for the energy sector in Norway under 4°C + AMOC collapse">
+                </a>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">3</span>
-                <span class="stat-label lang-en">Climate Scenarios (2&deg;C, 4&deg;C, AMOC)</span>
-                <span class="stat-label lang-no">Klimascenarier (2&deg;C, 4&deg;C, AMOC)</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">4</span>
-                <span class="stat-label lang-en">Hazards (Surge, Flood, Cold, Drought)</span>
-                <span class="stat-label lang-no">Farekilder (Stormflo, Flom, Kulde, T&oslash;rke)</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">15</span>
-                <span class="stat-label lang-en">Norwegian Counties Evaluated</span>
-                <span class="stat-label lang-no">Norske fylker analysert</span>
-            </div>
+            <p class="figure-caption lang-en">Left: mean multi-hazard risk to the energy sector per county. Right: the continuous 1 km risk surface. Both under the 4°C + AMOC collapse scenario. Click a map to open it in full size.</p>
+            <p class="figure-caption lang-no">Venstre: gjennomsnittlig multirisiko for energisektoren per fylke. Høyre: kontinuerlig risikoflate på 1 km. Begge under scenariet 4°C + AMOC-kollaps. Klikk på et kart for å åpne det i full størrelse.</p>
         </div>
 
         <div class="project-content">
-            <!-- Project Overview -->
-            <h2 class="lang-en"><i class="fas fa-bullseye"></i> Project Overview & Objectives</h2>
-            <h2 class="lang-no"><i class="fas fa-bullseye"></i> Prosjektoversikt og m&aring;l</h2>
+
+            <!-- Project Overview heading -->
+            <h2 class="lang-en">Project Overview</h2>
+            <h2 class="lang-no">Prosjektoversikt</h2>
 
             <p class="lang-en">
-                Climate change poses systemic risks to Norwegian society, physical infrastructure, and vital public services. As an electrified society with extensive coastlines, rugged topography, dispersed settlements, and profound reliance on hydropower, Norway is exposed to complex, compounding climate extremes.
+                This project was carried out in the NTNU course GEOG3527 GIS Tools for Climate Change Studies (spring 2026).
+                The task was to design a climate risk assessment for Norway for three warming scenarios by 2100: 2°C (RCP 2.6),
+                4°C (SSP3-7.0), and an exceptional 4°C scenario with a collapse of the Atlantic Meridional Overturning Circulation
+                (AMOC), which would bring much colder winters. The assessment covers four hazards: storm surges, extreme
+                precipitation and flooding, cold waves, and drought. It follows the IPCC definition of risk:
+                Risk = Hazard × Exposure × Vulnerability.
             </p>
             <p class="lang-en">
-                Developed for <strong>GEOG3527: GIS Methods for Climate Change</strong> at NTNU, this research project establishes a reproducible, national-scale spatial risk assessment. The study translates physical climate projections into actionable geographic intelligence by evaluating how multiple compounding hazards intersect with critical societal sectors, with a primary focus on <strong>Norway's national energy infrastructure</strong> (power stations, high-voltage transmission lines, and regional transformer substations).
+                The analysis was carried out for the energy sector, which served as the pilot for the full workflow. Norway's
+                power system depends on hydropower and a long transmission network through fjords and mountains, which exposes
+                it to several hazards at the same time.
             </p>
 
             <p class="lang-no">
-                Klimaendringer utgj&oslash;r en systemisk risiko for det norske samfunnet, v&aring;r fysiske infrastruktur og samfunnskritiske funksjoner. Som et h&oslash;yelektrifisert land med lang kystlinje, krevende topografi, spredt bosetting og stor avhengighet av vannkraft, er Norge s&aelig;rlig s&aring;rbart for sammensatte klimahendelser.
+                Prosjektet ble gjennomført i emnet GEOG3527 GIS Tools for Climate Change Studies ved NTNU (våren 2026).
+                Oppgaven var å utarbeide en klimarisikovurdering for Norge for tre oppvarmingsscenarier fram mot 2100:
+                2°C (RCP 2.6), 4°C (SSP3-7.0) og et ekstremt 4°C-scenario med kollaps i den atlantiske
+                omveltningssirkulasjonen (AMOC), som vil gi mye kaldere vintre. Vurderingen omfatter fire farer: stormflo,
+                ekstremnedbør og flom, kuldebølger og tørke. Den bygger på IPCCs definisjon av risiko:
+                risiko = fare × eksponering × sårbarhet.
             </p>
             <p class="lang-no">
-                Dette forskningsprosjektet, utf&oslash;rt innen emnet <strong>GEOG3527: GIS-metoder for klimaendringer</strong> ved NTNU, etablerer en reproduserbar, nasjonal romlig risikoanalyse. Studien omsetter klimaprojeksjoner til geografisk beslutningsst&oslash;tte ved &aring; analysere hvordan sammensatte farekilder p&aring;virker kritiske samfunnssektorer, med s&aelig;rlig fokus p&aring; <strong>Norges energiinfrastruktur</strong> (kraftverk, h&oslash;yspentlinjer og transformatorstasjoner).
+                Analysen ble gjennomført for energisektoren, som fungerte som pilot for hele arbeidsflyten. Det norske
+                kraftsystemet er avhengig av vannkraft og et langt kraftnett gjennom fjorder og fjell, og er derfor utsatt for
+                flere farer samtidig.
             </p>
 
-            <!-- Conceptual Framework -->
-            <h2 class="lang-en"><i class="fas fa-sitemap"></i> The IPCC Risk Framework</h2>
-            <h2 class="lang-no"><i class="fas fa-sitemap"></i> FNs klimapanels (IPCC) risikorammeverk</h2>
-
-            <img src="images/SD_climate_risk_framework.png" alt="IPCC Risk Framework Diagram" class="project-image">
-            <div class="figure-caption lang-en">Figure 2: Operationalization of the IPCC Risk Equation: Risk = Hazard &times; Exposure &times; Vulnerability (incorporating Sensitivity and Adaptive Capacity).</div>
-            <div class="figure-caption lang-no">Figur 2: Operasjonalisering av IPCCs risikoligning: Risiko = Fare &times; Eksponering &times; S&aring;rbarhet (inkludert f&oslash;lsomhet og tilpasningsdyktighet).</div>
+            <!-- Method -->
+            <h2 class="lang-en">Method</h2>
+            <h2 class="lang-no">Metode</h2>
 
             <p class="lang-en">
-                The methodological foundation operationalizes the Intergovernmental Panel on Climate Change (IPCC AR5/AR6) risk paradigm:
+                The assessment uses raster overlay in ArcGIS Pro. All layers are brought to a common 1 km grid
+                (ETRS89 / UTM zone 33N) and rescaled to 0–1, so that hazard, exposure and vulnerability can be multiplied
+                cell by cell. The workflow was scripted in Python (ArcPy) as eight phases, and the result of each phase can be
+                inspected before moving on:
             </p>
-            <div class="callout-box">
-                <p class="lang-en" style="margin-bottom:0;">
-                    <strong>Risk = Hazard &times; Exposure &times; Vulnerability</strong><br>
-                    Where Vulnerability is formulated as: <em>Vulnerability = Sensitivity &times; (1 &minus; Adaptive Capacity)</em>.
-                </p>
-                <p class="lang-no" style="margin-bottom:0;">
-                    <strong>Risiko = Fare &times; Eksponering &times; S&aring;rbarhet</strong><br>
-                    Hvor s&aring;rbarhet beregnes som: <em>S&aring;rbarhet = F&oslash;lsomhet &times; (1 &minus; Tilpasningskapasitet)</em>.
-                </p>
+            <ol class="lang-en">
+                <li>Setup: project geodatabase, folder structure and processing settings.</li>
+                <li>Administrative data: county boundaries from Kartverket, elevation and distance to the coast.</li>
+                <li>Hazards: storm surge, extreme precipitation, cold waves and drought for each scenario, normalised to 0–1.</li>
+                <li>Exposure: density of power plants and power lines from NVE's energy infrastructure data.</li>
+                <li>Vulnerability: a county-level vulnerability index for the energy system.</li>
+                <li>Risk: Hazard × Exposure × Vulnerability for each hazard and scenario.</li>
+                <li>Aggregation: combined multi-hazard risk with equal hazard weights, summarised per county with zonal statistics.</li>
+                <li>Maps and charts: the final risk maps in ArcGIS Pro and comparison charts in Matplotlib.</li>
+            </ol>
+            <p class="lang-en">
+                There are no standard downscaled climate projections for an AMOC collapse, so this scenario was built from the
+                4°C hazard layers as a stress test: the cold-wave hazard was increased, most strongly near the coast, storm
+                surge and drought were amplified, and extreme precipitation was reduced.
+            </p>
+
+            <p class="lang-no">
+                Vurderingen bruker overlagsanalyse av raster i ArcGIS Pro. Alle lag er overført til et felles rutenett på 1 km
+                (ETRS89 / UTM sone 33N) og skalert til 0–1, slik at fare, eksponering og sårbarhet kan multipliseres celle for
+                celle. Arbeidsflyten ble skrevet i Python (ArcPy) i åtte faser, og resultatet av hver fase kan kontrolleres før
+                neste steg:
+            </p>
+            <ol class="lang-no">
+                <li>Oppsett: geodatabase, mappestruktur og prosesseringsinnstillinger.</li>
+                <li>Administrative data: fylkesgrenser fra Kartverket, høydedata og avstand til kysten.</li>
+                <li>Farer: stormflo, ekstremnedbør, kuldebølger og tørke for hvert scenario, normalisert til 0–1.</li>
+                <li>Eksponering: tetthet av kraftverk og kraftledninger fra NVEs data om energiinfrastruktur.</li>
+                <li>Sårbarhet: en sårbarhetsindeks for energisystemet på fylkesnivå.</li>
+                <li>Risiko: fare × eksponering × sårbarhet for hver fare og hvert scenario.</li>
+                <li>Aggregering: samlet multirisiko med like vekter for farene, oppsummert per fylke med sonestatistikk.</li>
+                <li>Kart og diagrammer: endelige risikokart i ArcGIS Pro og sammenligningsdiagrammer i Matplotlib.</li>
+            </ol>
+            <p class="lang-no">
+                Det finnes ingen standard nedskalerte klimaframskrivninger for en AMOC-kollaps. Scenariet ble derfor laget som
+                en stresstest ut fra 4°C-lagene: faren for kuldebølger ble økt, mest langs kysten, stormflo og tørke ble
+                forsterket, og ekstremnedbøren ble redusert.
+            </p>
+
+            <!-- Results -->
+            <h2 class="lang-en">Results</h2>
+            <h2 class="lang-no">Resultater</h2>
+
+            <div class="figure">
+                <img src="images/SD_climate_risk_scenarios.png" alt="Bar chart comparing mean multi-hazard risk per county under the 2°C, 4°C and 4°C + AMOC scenarios" loading="lazy">
+                <p class="figure-caption lang-en">Mean multi-hazard risk index for the energy sector per county in the three scenarios (equal hazard weights).</p>
+                <p class="figure-caption lang-no">Gjennomsnittlig multirisikoindeks for energisektoren per fylke i de tre scenariene (like vekter for farene).</p>
             </div>
 
             <p class="lang-en">
-                In this assessment:
+                The ranking of the counties is stable across the scenarios: Vestland and Rogaland have the highest risk in all
+                three. The difference between 2°C and 4°C is small, and in most counties the 4°C values are slightly lower.
+                The AMOC collapse is what changes the picture: it gives the highest risk in most counties, and Vestland's mean
+                index rises from about 0.013 to 0.017. The maps show this 4°C + AMOC scenario.
             </p>
-            <ul class="lang-en" style="margin-bottom: 20px; padding-left: 20px; color: var(--text-color);">
-                <li><strong>Hazard (H):</strong> The physical intensity and likelihood of climate extremes (normalized to 0&ndash;1).</li>
-                <li><strong>Exposure (E):</strong> The geographic footprint and spatial co-location of energy assets (hydropower stations, substations, power corridors).</li>
-                <li><strong>Sensitivity:</strong> Susceptibility of electrical equipment to specific physical stressors (e.g., flooding of transformer terminals, line ice loading).</li>
-                <li><strong>Adaptive Capacity:</strong> Grid redundancies, mesh topology, emergency backup systems, and flood protection barriers.</li>
-            </ul>
-
             <p class="lang-no">
-                I denne vurderingen inng&aring;r:
+                Rangeringen av fylkene er stabil på tvers av scenariene: Vestland og Rogaland har høyest risiko i alle tre.
+                Forskjellen mellom 2°C og 4°C er liten, og i de fleste fylker er verdiene for 4°C litt lavere. Det er
+                AMOC-kollapsen som endrer bildet: den gir høyest risiko i de fleste fylker, og gjennomsnittsindeksen for
+                Vestland øker fra omkring 0,013 til 0,017. Kartene viser dette 4°C + AMOC-scenariet.
             </p>
-            <ul class="lang-no" style="margin-bottom: 20px; padding-left: 20px; color: var(--text-color);">
-                <li><strong>Fare / Hazard (H):</strong> Den fysiske intensiteten og sannsynligheten for ekstreme v&aelig;rhendelser (normalisert til 0&ndash;1).</li>
-                <li><strong>Eksponering / Exposure (E):</strong> Den geografiske plasseringen og tettheten av energiinstallasjoner (vannkraftverk, transformatorstasjoner, kraftlinjer).</li>
-                <li><strong>F&oslash;lsomhet / Sensitivity:</strong> Hvor s&aring;rbart utstyret er for spesifikke belastninger (f.eks. vanninntrenging i trafoer, ising p&aring; linjer).</li>
-                <li><strong>Tilpasningskapasitet / Adaptive Capacity:</strong> Nettredundans, maskenettverk, reservesystemer og flombarrierer.</li>
-            </ul>
 
-            <!-- Scenarios & Hazards -->
-            <h2 class="lang-en"><i class="fas fa-temperature-high"></i> Climate Scenarios & Physical Hazards</h2>
-            <h2 class="lang-no"><i class="fas fa-temperature-high"></i> Klimascenarier og fysiske farer</h2>
-
-            <img src="images/SD_climate_risk_scenarios.png" alt="Scenario Comparison Chart" class="project-image">
-            <div class="figure-caption lang-en">Figure 3: Cross-scenario comparison of multi-hazard risk index distributions across the 2&deg;C, 4&deg;C, and 4&deg;C + AMOC collapse warming pathways.</div>
-            <div class="figure-caption lang-no">Figur 3: Sammenligning av multirisikoindeksens fordeling p&aring; tvers av 2&deg;C, 4&deg;C og 4&deg;C + AMOC-kollapsscenariene.</div>
-
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h4 class="lang-en"><i class="fas fa-leaf"></i> 2&deg;C Warming (RCP 2.6)</h4>
-                    <h4 class="lang-no"><i class="fas fa-leaf"></i> 2&deg;C Oppvarming (RCP 2.6)</h4>
-                    <p class="lang-en">Strong mitigation pathway aligned with the Paris Agreement targets. Modest increases in storm surges and localized precipitation, with relatively manageable strain on grid infrastructure.</p>
-                    <p class="lang-no">Sterkt utslippskuttscenario i tr&aring;d med Parisavtalen. Moderate &oslash;kninger i stormflo og nedb&oslash;r, med overkommelig belastning p&aring; kraftnettet.</p>
-                </div>
-                <div class="feature-card">
-                    <h4 class="lang-en"><i class="fas fa-fire"></i> 4&deg;C Warming (SSP3-7.0)</h4>
-                    <h4 class="lang-no"><i class="fas fa-fire"></i> 4&deg;C Oppvarming (SSP3-7.0)</h4>
-                    <p class="lang-en">High emissions / limited global mitigation. Dramatic surges in extreme precipitation events (styrtregn), heightened riverine flood frequencies, and intense summer droughts threatening reservoir capacities.</p>
-                    <p class="lang-no">H&oslash;ye utslipp og begrenset global klimatilpasning. Markant &oslash;kning i styrtregn, h&oslash;yere flomfrekvens og sommert&oslash;rke som truer magasinfyllingen.</p>
-                </div>
-                <div class="feature-card">
-                    <h4 class="lang-en"><i class="fas fa-snowflake"></i> 4&deg;C + AMOC Collapse</h4>
-                    <h4 class="lang-no"><i class="fas fa-snowflake"></i> 4&deg;C + AMOC-kollaps</h4>
-                    <p class="lang-en">A critical tipping-point stress test: global warming coupled with a shutdown of the Atlantic Meridional Overturning Circulation, plunging Scandinavia into severe sub-zero winters, extreme icing, and prolonged cold waves.</p>
-                    <p class="lang-no">Et kritisk vippepunkt-scenario: global oppvarming kombinert med kollaps i Golfstr&oslash;mmen (AMOC), noe som f&oslash;rer til ekstreme kuldeb&oslash;lger, kraftig ising og massiv &oslash;kning i oppvarmingsettersp&oslash;rsel.</p>
-                </div>
+            <div class="figure">
+                <img src="images/SD_climate_risk_county_ranking.png" alt="Bar chart ranking Norwegian counties by mean and 90th percentile multi-hazard risk under 4°C + AMOC collapse" loading="lazy">
+                <p class="figure-caption lang-en">County ranking under the 4°C + AMOC collapse scenario: mean risk and 90th percentile.</p>
+                <p class="figure-caption lang-no">Rangering av fylkene under scenariet 4°C + AMOC-kollaps: gjennomsnittlig risiko og 90-persentil.</p>
             </div>
 
-            <!-- Spatial Methodology & Workflow -->
-            <h2 class="lang-en"><i class="fas fa-cogs"></i> Spatial Methodology & ArcPy Pipeline</h2>
-            <h2 class="lang-no"><i class="fas fa-cogs"></i> Romlig metodikk og ArcPy-arbeidsflyt</h2>
-
-            <img src="images/SD_climate_risk_workflow.png" alt="GIS Geoprocessing Workflow Diagram" class="project-image">
-            <div class="figure-caption lang-en">Figure 4: Automated eight-phase geoprocessing pipeline implemented in ArcGIS Pro using Python (ArcPy).</div>
-            <div class="figure-caption lang-no">Figur 4: Automatisert &aring;ttefaset geobehandlingsr&oslash;rledning implementert i ArcGIS Pro med Python (ArcPy).</div>
-
             <p class="lang-en">
-                To guarantee reproducibility across all scenarios, the analysis was executed using an automated <strong>ArcPy / Python script architecture</strong> in ArcGIS Pro:
+                Under 4°C + AMOC, Vestland (mean 0.017) and Rogaland (0.014) form the highest risk class, followed by Buskerud,
+                Møre og Romsdal and Telemark. Finnmark has the lowest risk. The index values are small on average because risk
+                is close to zero wherever there is little energy infrastructure. The 90th percentile, which reaches about 0.05
+                in Vestland, shows how concentrated the hotspots are.
             </p>
-            <ul class="lang-en" style="margin-bottom: 20px; padding-left: 20px; color: var(--text-color);">
-                <li><strong>Harmonization & Spatial Reference:</strong> All vector layers (NVE grid networks, Kartverket boundaries) and raster hazard data (NCCS Euro-CORDEX downscalings) were aligned to <strong>ETRS89 / UTM Zone 33N (EPSG:25833)</strong> at a unified <strong>1 km cell resolution</strong>.</li>
-                <li><strong>Min-Max Normalization:</strong> Raw physical values (meters of flood depth, temperature anomaly in &deg;C, storm surge meters) were mathematically rescaled to a dimensionless [0, 1] interval.</li>
-                <li><strong>Raster Calculation:</strong> Hazard rasters were multiplied cell-by-cell with the exposure and vulnerability layers ($R = H \times E \times V$).</li>
-                <li><strong>Multi-Hazard Aggregation:</strong> Sector-weighted overlays integrated coastal storm surges, extreme precipitation/flooding, cold waves, and droughts.</li>
-                <li><strong>Zonal Statistics:</strong> County-level (Fylke) distributions were calculated, outputting mean, maximum, and sum risk indices to validate regional prioritization.</li>
-            </ul>
-
-            <p class="lang-no">
-                For &aring; sikre full reproduserbarhet p&aring; tvers av scenarier, ble analysen kj&oslash;rt via en automatisert <strong>ArcPy / Python-skriptarkitektur</strong> i ArcGIS Pro:
-            </p>
-            <ul class="lang-no" style="margin-bottom: 20px; padding-left: 20px; color: var(--text-color);">
-                <li><strong>Harmonisering og koordinatsystem:</strong> Alle vektorlag (NVE kraftnett, Kartverket grenser) og rasterdata (klimamodeller fra NCCS) ble standardisert til <strong>ETRS89 / UTM Sone 33N (EPSG:25833)</strong> med <strong>1 km rasteroppl&oslash;sning</strong>.</li>
-                <li><strong>Min-Max Normalisering:</strong> R&aring;verdier (vannstand, flomdybde, temperaturavvik) ble matematisk skalert til et enhetsl&oslash;st [0, 1] intervall.</li>
-                <li><strong>Rasterkalkulasjon:</strong> Farelag ble multiplisert celle-for-celle med eksponerings- og s&aring;rbarhetslagene ($R = H \times E \times V$).</li>
-                <li><strong>Multirisiko-aggregering:</strong> Vektet rasteroverlegg kombinerte stormflo, styrtregn/flom, kuldeb&oslash;lger og t&oslash;rke.</li>
-                <li><strong>Sone-statistikk (Zonal Statistics):</strong> Beregnet fylkesvise fordelinger med gjennomsnittlig, maksimal og summert risiko for &aring; prioritere tiltak.</li>
-            </ul>
-
-            <!-- National Continuous Risk Maps -->
-            <h2 class="lang-en"><i class="fas fa-map"></i> National Continuous Risk Patterns</h2>
-            <h2 class="lang-no"><i class="fas fa-map"></i> Nasjonale kontinuerlige risikom&oslash;nstre</h2>
-
-            <img src="images/SD_climate_risk_raster_map.png" alt="National Continuous Multi-Hazard Risk Raster Map" class="project-image">
-            <div class="figure-caption lang-en">Figure 5: High-resolution continuous raster surface of multi-hazard climate risk for Norway's energy infrastructure under 4&deg;C + AMOC collapse.</div>
-            <div class="figure-caption lang-no">Figur 5: H&oslash;yoppl&oslash;selig kontinuerlig rasterkart over multirisiko for Norges energiinfrastruktur under 4&deg;C + AMOC-kollaps.</div>
-
             <p class="lang-en">
-                The continuous 1 km raster analysis reveals extreme spatial heterogeneity:
+                The 1 km risk surface shows where within the counties the risk is concentrated: the highest values lie in the
+                fjord and mountain areas of Vestland and Rogaland, with smaller hotspots in Møre og Romsdal, around Trondheim,
+                and in Nordland and Troms.
             </p>
-            <ul class="lang-en" style="margin-bottom: 20px; padding-left: 20px; color: var(--text-color);">
-                <li><strong>Western Fjords & Coastal Margins:</strong> The sharpest risk spikes occur where narrow fjord corridors concentrate high-voltage transmission lines directly adjacent to steep flood/debris cones and storm surge zones.</li>
-                <li><strong>High-Altitude Hydropower Corridors:</strong> Severe icing and sub-zero cold waves threaten mountain reservoirs, penstocks, and transmission lines in high mountain passes (Jotunheimen, Hardangervidda).</li>
-            </ul>
-
             <p class="lang-no">
-                Det kontinuerlige 1 km rasterkartet avdekker betydelige geografiske ulikheter:
+                Under 4°C + AMOC utgjør Vestland (gjennomsnitt 0,017) og Rogaland (0,014) den høyeste risikoklassen, fulgt av
+                Buskerud, Møre og Romsdal og Telemark. Finnmark har lavest risiko. Indeksverdiene er i gjennomsnitt små fordi
+                risikoen er nær null der det er lite energiinfrastruktur. 90-persentilen, som når omkring 0,05 i Vestland,
+                viser hvor konsentrert risikoen er.
             </p>
-            <ul class="lang-no" style="margin-bottom: 20px; padding-left: 20px; color: var(--text-color);">
-                <li><strong>Vestlandsfjorder og kystsonen:</strong> De h&oslash;yeste risikotoppene oppst&aring;r der trange fjorder samler kraftlinjer i niv&aring;er direkte utsatt for b&aring;de stormflo, ras og styrtregnflom.</li>
-                <li><strong>H&oslash;yfjellets vannkraftkorridorer:</strong> Ekstrem ising og kulde truer inntaksmagasiner, trykksjakter og overf&oslash;ringslinjer over fjelloverganger (Jotunheimen, Hardangervidda).</li>
-            </ul>
+            <p class="lang-no">
+                Risikoflaten på 1 km viser hvor i fylkene risikoen er konsentrert: de høyeste verdiene ligger i fjord- og
+                fjellområdene i Vestland og Rogaland, med mindre konsentrasjoner i Møre og Romsdal, rundt Trondheim og i
+                Nordland og Troms.
+            </p>
 
-            <!-- Key Findings & County Rankings -->
-            <h2 class="lang-en"><i class="fas fa-chart-bar"></i> Quantitative County Rankings & Key Findings</h2>
-            <h2 class="lang-no"><i class="fas fa-chart-bar"></i> Kvantitativ fylkesrangering og n&oslash;kkelfunn</h2>
-
-            <img src="images/SD_climate_risk_county_ranking.png" alt="County Ranking Bar Chart" class="project-image">
-            <div class="figure-caption lang-en">Figure 6: Norwegian county vulnerability ranking based on mean multi-hazard energy risk index under 4&deg;C + AMOC collapse.</div>
-            <div class="figure-caption lang-no">Figur 6: Rangering av norske fylker basert p&aring; gjennomsnittlig multirisikoindeks for energisektoren under 4&deg;C + AMOC-kollaps.</div>
-
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h4 class="lang-en"><i class="fas fa-mountain"></i> 1. Vestland (Fylke 46)</h4>
-                    <h4 class="lang-no"><i class="fas fa-mountain"></i> 1. Vestland (Fylke 46)</h4>
-                    <p class="lang-en">Highest mean risk index (0.0170) and highest single-cell maximum (0.475). Dense concentration of hydropower production exposed to compounding storm surges, atmospheric river flooding, and rugged mountain terrain.</p>
-                    <p class="lang-no">H&oslash;yeste gjennomsnittlige risiko (0,0170) og h&oslash;yeste enkeltcelle-topp (0,475). Tett konsentrasjon av vannkraftverk utsatt for samvirkende stormflo, elveflom og rasfarlig terreng.</p>
-                </div>
-                <div class="feature-card">
-                    <h4 class="lang-en"><i class="fas fa-water"></i> 2. Rogaland</h4>
-                    <h4 class="lang-no"><i class="fas fa-water"></i> 2. Rogaland</h4>
-                    <p class="lang-en">Second-highest composite risk (0.0142). Substantial exposure of coastal transformer stations and major energy export interconnectors subject to North Sea surge events and heavy rainfall.</p>
-                    <p class="lang-no">Nest h&oslash;yest samlet risiko (0,0142). Betydelig eksponering for transformatorstasjoner n&aelig;r kysten og n&oslash;kkelpunkter for krafteksport utsatt for stormflo og nedb&oslash;rsflom.</p>
-                </div>
-                <div class="feature-card">
-                    <h4 class="lang-en"><i class="fas fa-wind"></i> 3. Buskerud & Inland</h4>
-                    <h4 class="lang-no"><i class="fas fa-wind"></i> 3. Buskerud og Innlandet</h4>
-                    <p class="lang-en">Third-highest risk (0.0108). Acute susceptibility to river basin flooding (Drammenselva basin) combined with catastrophic cold-wave loads under the AMOC shutdown scenario.</p>
-                    <p class="lang-no">Tredje h&oslash;yeste risiko (0,0108). S&aelig;rlig utsatt for vassdragsflom (Drammensvassdraget) i kombinasjon med ekstreme kuldeb&oslash;lger og isbelastning ved AMOC-kollaps.</p>
-                </div>
+            <div class="figure figure-portrait">
+                <a href="images/SD_climate_risk_coldwave_map.png" target="_blank" rel="noopener">
+                    <img src="images/SD_climate_risk_coldwave_map.png" alt="Map of cold-wave risk to the Norwegian energy sector under 4°C + AMOC collapse" loading="lazy">
+                </a>
+                <p class="figure-caption lang-en">Cold-wave risk to the energy sector under the 4°C + AMOC collapse scenario (0–0.82).</p>
+                <p class="figure-caption lang-no">Risiko for kuldebølger for energisektoren under scenariet 4°C + AMOC-kollaps (0–0,82).</p>
             </div>
 
-            <!-- Risk Reduction Strategy -->
-            <h2 class="lang-en"><i class="fas fa-shield-alt"></i> Infrastructure Adaptation & Risk-Reduction Strategy</h2>
-            <h2 class="lang-no"><i class="fas fa-shield-alt"></i> Klimatilpasnings- og risikoreduksjonsstrategi</h2>
+            <p class="lang-en">
+                Cold waves are the hazard most directly linked to an AMOC collapse. The highest cold-wave risk is in the western
+                fjord and mountain areas, where much of Norway's hydropower production and many power lines are located, and in
+                parts of Nordland.
+            </p>
+            <p class="lang-no">
+                Kuldebølger er faren som henger tettest sammen med en AMOC-kollaps. Den høyeste risikoen for kuldebølger finnes
+                i fjord- og fjellområdene på Vestlandet, der mye av vannkraftproduksjonen og mange kraftledninger ligger, og i
+                deler av Nordland.
+            </p>
+
+            <!-- Reducing the risk -->
+            <h2 class="lang-en">Reducing the Risk</h2>
+            <h2 class="lang-no">Hvordan redusere risikoen</h2>
 
             <p class="lang-en">
-                Based on the measured spatial vulnerabilities, four strategic adaptation priorities are recommended for energy grid operators (Statnett, regional DSOs) and municipal spatial planners:
+                The results point to four priorities for grid operators (Statnett and the regional grid companies) and spatial
+                planners:
             </p>
-            <ul class="lang-en" style="margin-bottom: 25px; padding-left: 20px; color: var(--text-color);">
-                <li><strong>Targeted Transmission Line Hardening:</strong> Re-engineering pylon structural ratings in Vestland and mountain passes to withstand combined mechanical loads of gale-force winds and heavy rime ice accretion.</li>
-                <li><strong>Substation Coastal & Flood Defenses:</strong> Establishing raised plinths and physical perimeter floodwalls for critical transformer substations located within the 200-year storm surge and river flood zones.</li>
-                <li><strong>AMOC Cold-Wave Contingency:</strong> Upgrading black-start generator capabilities, de-icing thermal equipment on key interconnectors, and establishing strategic reserve protocols for sub-zero emergency demand.</li>
-                <li><strong>Reservoir Multi-Purpose Buffering:</strong> Adjusting seasonal dam water-retention rules to maintain buffer capacity against winter rain-on-snow floods while securing water volumes for potential prolonged droughts.</li>
+            <ul class="lang-en">
+                <li>Start with Vestland and Rogaland when strengthening power lines against wind and ice loads.</li>
+                <li>Protect transformer substations in flood and storm-surge zones, for example with raised foundations and flood barriers.</li>
+                <li>Prepare the power system for severe cold: winter reserve capacity, de-icing of key lines and emergency plans for peak demand.</li>
+                <li>Manage reservoirs for both floods and drought: keep buffer capacity in wet periods and water in reserve for dry summers.</li>
             </ul>
 
             <p class="lang-no">
-                Basert p&aring; de m&aring;lte romlige s&aring;rbarhetene, anbefales fire strategiske tilpasningstiltak for nettselskaper (Statnett, netteiere) og kommunale arealplanleggere:
+                Resultatene peker på fire prioriteringer for nettselskapene (Statnett og de regionale nettselskapene) og
+                arealplanleggere:
             </p>
-            <ul class="lang-no" style="margin-bottom: 25px; padding-left: 20px; color: var(--text-color);">
-                <li><strong>M&aring;lrettet linjeforsterkning:</strong> Oppdimensjonering av master og barduner i Vestland og fjelloverganger for &aring; t&aring;le kombinasjonen av ekstremvind og tung islast.</li>
-                <li><strong>Flomsikring av transformatorstasjoner:</strong> Etablering av hevede fundamenter og vanntette barrierer for stasjoner som ligger innenfor 200-&aring;rs flom- og stormflosoner.</li>
-                <li><strong>Kuldeberedskap for AMOC-scenario:</strong> Sikring av svartstart-kapasitet, avisingssystemer p&aring; overf&oslash;ringslinjer og beredskapsreserver for ekstreme kuldeperioder.</li>
-                <li><strong>Flerbruksstyring av vannmagasiner:</strong> Justering av man&oslash;vreringsreglementet for &aring; dempe store flomtopper (regn-p&aring;-sn&oslash;) og samtidig opprettholde beredskapsvolum ved t&oslash;rke.</li>
+            <ul class="lang-no">
+                <li>Begynn med Vestland og Rogaland når kraftledninger skal forsterkes mot vind- og islast.</li>
+                <li>Beskytt transformatorstasjoner i flom- og stormflosoner, for eksempel med hevede fundamenter og flomvern.</li>
+                <li>Forbered kraftsystemet på streng kulde: reservekapasitet om vinteren, avising av viktige linjer og beredskapsplaner for effekttopper.</li>
+                <li>Styr vannmagasinene med tanke på både flom og tørke: behold bufferkapasitet i våte perioder og vannreserver for tørre somre.</li>
             </ul>
 
             <!-- Project Details -->
             <div class="project-details">
                 <div class="detail-item">
-                    <h3 class="lang-en">Tools & Technologies</h3>
-                    <h3 class="lang-no">Verkt&oslash;y og teknologi</h3>
-                    <p>ArcGIS Pro, Python (ArcPy), Spatial Analyst, Zonal Statistics, Matplotlib</p>
+                    <h3 class="lang-en">Tools Used</h3>
+                    <h3 class="lang-no">Verktøy brukt</h3>
+                    <p>ArcGIS Pro, Python (ArcPy), Spatial Analyst, Matplotlib</p>
                 </div>
                 <div class="detail-item">
-                    <h3 class="lang-en">Data Sources</h3>
-                    <h3 class="lang-no">Datakilder</h3>
-                    <p>NCCS Euro-CORDEX Projections, NVE Energy Grid, Kartverket Basemaps</p>
+                    <h3 class="lang-en">Project Date</h3>
+                    <h3 class="lang-no">Prosjektdato</h3>
+                    <p>2026</p>
                 </div>
                 <div class="detail-item">
-                    <h3 class="lang-en">Spatial Reference</h3>
-                    <h3 class="lang-no">Koordinatsystem</h3>
-                    <p>ETRS89 / UTM Zone 33N (EPSG:25833) &bull; 1 km Grid</p>
-                </div>
-                <div class="detail-item">
-                    <h3 class="lang-en">Academic Context</h3>
-                    <h3 class="lang-no">Faglig kontekst</h3>
-                    <p class="lang-en">GEOG3527: GIS Methods for Climate Change &bull; NTNU (2026)</p>
-                    <p class="lang-no">GEOG3527: GIS-metoder for klimaendringer &bull; NTNU (2026)</p>
+                    <h3 class="lang-en">Project Type</h3>
+                    <h3 class="lang-no">Prosjekttype</h3>
+                    <p class="lang-en">GIS & Climate Risk Analysis</p>
+                    <p class="lang-no">GIS- og klimarisikoanalyse</p>
                 </div>
             </div>
 
@@ -509,12 +360,12 @@
                 <i class="fas fa-arrow-left"></i> Back to Portfolio
             </a>
             <a href="index.html#portfolio" class="back-button lang-no">
-                <i class="fas fa-arrow-left"></i> Tilbake til portef&oslash;ljen
+                <i class="fas fa-arrow-left"></i> Tilbake til porteføljen
             </a>
         </div>
     </div>
 
-    <!-- Language Switcher Script -->
+    <!-- Language switcher script (same as in portfolio-item.html) -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const enBtn = document.getElementById('en-btn');
@@ -535,18 +386,14 @@
 
             function setLanguage(lang) {
                 if (lang === 'en') {
-                    enElements.forEach(el => {
-                        el.style.display = (el.classList.contains('back-button') || el.tagName === 'A') ? 'inline-flex' : (el.tagName === 'SPAN' ? 'inline' : 'block');
-                    });
+                    enElements.forEach(el => el.style.display = 'block');
                     noElements.forEach(el => el.style.display = 'none');
                     enBtn.classList.add('active');
                     noBtn.classList.remove('active');
                     document.documentElement.lang = 'en';
                 } else {
                     enElements.forEach(el => el.style.display = 'none');
-                    noElements.forEach(el => {
-                        el.style.display = (el.classList.contains('back-button') || el.tagName === 'A') ? 'inline-flex' : (el.tagName === 'SPAN' ? 'inline' : 'block');
-                    });
+                    noElements.forEach(el => el.style.display = 'block');
                     noBtn.classList.add('active');
                     enBtn.classList.remove('active');
                     document.documentElement.lang = 'no';

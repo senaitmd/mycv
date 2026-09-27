@@ -186,17 +186,29 @@
                     </p>
                 </div>
 
-                <!-- PhD Course - Updated layout with smaller gap and repositioned button -->
+                <!-- Continuing education: NTNU courses, newest first. Transcripts have the national ID number redacted. -->
                 <div class="education-item continuing-education">
                     <div class="continuing-header">
                         <h4 class="lang-en">Continuing Education</h4>
                         <h4 class="lang-no">Videreutdanning</h4>
-                        <a href="documents/NTNU_PhD_Course_GIS_Methods_Grade.pdf" class="certificate-link-inline lang-en" onclick="handlePdfLink(event, 'documents/NTNU_PhD_Course_GIS_Methods_Grade.pdf')">
+                        <a href="documents/NTNU_GIS_Courses_Grades.pdf" class="certificate-link-inline lang-en">
                             <i class="fas fa-certificate"></i> View Transcript
                         </a>
-                        <a href="documents/NTNU_PhD_Course_GIS_Methods_Grade.pdf" class="certificate-link-inline lang-no" onclick="handlePdfLink(event, 'documents/NTNU_PhD_Course_GIS_Methods_Grade.pdf')">
+                        <a href="documents/NTNU_GIS_Courses_Grades_NO.pdf" class="certificate-link-inline lang-no">
                             <i class="fas fa-certificate"></i> Se karakterutskrift
                         </a>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-title lang-en">GEOG3527: GIS Tools for Climate Change Studies</span>
+                        <span class="course-title lang-no">GEOG3527: GIS Tools for Climate Change Studies</span>
+                        <span class="course-date lang-en">2026 | Norwegian University of Science and Technology (NTNU)</span>
+                        <span class="course-date lang-no">2026 | Norges teknisk-naturvitenskapelige universitet (NTNU)</span>
+                        <p class="course-description lang-en">
+                            Climate risk assessment with GIS: mapping hazard, exposure and vulnerability for Norway under different warming scenarios, including a multi-hazard risk assessment of the energy sector (see Portfolio).
+                        </p>
+                        <p class="course-description lang-no">
+                            Klimarisikovurdering med GIS: kartlegging av fare, eksponering og sårbarhet for Norge under ulike oppvarmingsscenarier, blant annet en multirisikovurdering av energisektoren (se Portefølje).
+                        </p>
                     </div>
                     <div class="course-item">
                         <span class="course-title lang-en">PhD Course: GIS Methods for Integrated Transport and Land Use Planning</span>
@@ -295,6 +307,11 @@
                         <h3 class="lang-en">Certificates</h3>
                         <h3 class="lang-no">Sertifikater</h3>
                         <div class="skills-grid">
+                            <a href="documents/SD_Mastering_Geospatial_Analysis_with_QGIS_Coursera.pdf" class="skill-icon-item certificate-link">
+                                <i class="fa-solid fa-layer-group"></i>
+                                <span class="lang-en">Mastering Geospatial Analysis with QGIS</span>
+                                <span class="lang-no">Mastering Geospatial Analysis with QGIS</span>
+                            </a>
                             <a href="documents/SD_Python_Coursera.pdf" class="skill-icon-item certificate-link" onclick="handlePdfLink(event, 'documents/SD_Python_Coursera.pdf')">
                                 <i class="fa-brands fa-python"></i>
                                 <span class="lang-en">Getting Started with Python</span>
@@ -357,20 +374,21 @@
             <h2 class="section-heading lang-no"><i class="fas fa-project-diagram"></i> Portefølje</h2>
             <div class="portfolio-container">
 
-                <!-- Norway Multi-Hazard Climate Risk Assessment -->
+                <!-- Norway Multi-Hazard Climate Risk Assessment (GEOG3527, NTNU) -->
                 <div class="card portfolio-item">
-                    <img src="images/SD_climate_risk_county_map.png" alt="Multi-Hazard Climate Risk Assessment for Norway" class="portfolio-img">
-                
+                    <!-- object-position keeps the high-risk southwest in view when the portrait map is cropped -->
+                    <img src="images/SD_climate_risk_county_map.png" alt="Multi-hazard climate risk to the energy sector per Norwegian county" class="portfolio-img" style="object-position: center 80%;">
+
                     <div class="portfolio-overlay">
-                        <h3 class="lang-en">Multi-Hazard Climate Risk Assessment for Norway</h3>
-                        <h3 class="lang-no">Nasjonal multirisiko klimavurdering for Norge</h3>
-                
+                        <h3 class="lang-en">Multi-Hazard Climate Risk Assessment: Norway's Energy Sector</h3>
+                        <h3 class="lang-no">Klimarisiko fra flere naturfarer: Norges energisektor</h3>
+
                         <div class="portfolio-details">
                             <p class="lang-en">
-                                National-scale GIS raster overlay and zonal vulnerability assessment of Norway's critical energy infrastructure across 2&deg;C, 4&deg;C, and AMOC collapse scenarios in ArcGIS Pro.
+                                Map how storm surges, flooding, cold waves and drought could affect Norway's energy infrastructure under 2&deg;C, 4&deg;C and 4&deg;C + AMOC collapse scenarios, using raster overlay in ArcGIS Pro.
                             </p>
                             <p class="lang-no">
-                                Nasjonal GIS-rasteranalyse og fylkesvis s&aring;rbarhetsvurdering av Norges energiinfrastruktur under 2&deg;C, 4&deg;C og AMOC-kollapsscenarier i ArcGIS Pro.
+                                Kartlegg hvordan stormflo, flom, kuldeb&oslash;lger og t&oslash;rke kan p&aring;virke energiinfrastrukturen i Norge under 2&deg;C, 4&deg;C og 4&deg;C + AMOC-kollaps, ved hjelp av overlagsanalyse av raster i ArcGIS Pro.
                             </p>
                 
                             <a href="portfolio-item-climate-risk.html" class="portfolio-btn lang-en">View Project</a>
@@ -2311,6 +2329,10 @@
         .course-item {
             padding-left: 15px;
             border-left: 3px solid rgba(var(--primary-rgb), 0.2);
+        }
+
+        .course-item + .course-item {
+            margin-top: 15px;
         }
 
         .course-title {
