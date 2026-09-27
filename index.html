@@ -357,6 +357,28 @@
             <h2 class="section-heading lang-no"><i class="fas fa-project-diagram"></i> Portefølje</h2>
             <div class="portfolio-container">
 
+                <!-- Norway Multi-Hazard Climate Risk Assessment -->
+                <div class="card portfolio-item">
+                    <img src="images/SD_climate_risk_county_map.png" alt="Multi-Hazard Climate Risk Assessment for Norway" class="portfolio-img">
+                
+                    <div class="portfolio-overlay">
+                        <h3 class="lang-en">Multi-Hazard Climate Risk Assessment for Norway</h3>
+                        <h3 class="lang-no">Nasjonal multirisiko klimavurdering for Norge</h3>
+                
+                        <div class="portfolio-details">
+                            <p class="lang-en">
+                                National-scale GIS raster overlay and zonal vulnerability assessment of Norway's critical energy infrastructure across 2&deg;C, 4&deg;C, and AMOC collapse scenarios in ArcGIS Pro.
+                            </p>
+                            <p class="lang-no">
+                                Nasjonal GIS-rasteranalyse og fylkesvis s&aring;rbarhetsvurdering av Norges energiinfrastruktur under 2&deg;C, 4&deg;C og AMOC-kollapsscenarier i ArcGIS Pro.
+                            </p>
+                
+                            <a href="portfolio-item-climate-risk.html" class="portfolio-btn lang-en">View Project</a>
+                            <a href="portfolio-item-climate-risk.html" class="portfolio-btn lang-no">Se prosjekt</a>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Trondheim fire stations -->
                 <div class="card portfolio-item">
                     <!-- Replace with your own thumbnail image -->
@@ -661,6 +683,20 @@
                             item.classList.remove('active');
                         });
                     }
+                });
+            } else {
+                // Desktop: Make whole card clickable
+                const portfolioItems = document.querySelectorAll('.portfolio-item');
+                portfolioItems.forEach(item => {
+                    item.style.cursor = 'pointer';
+                    item.addEventListener('click', function(e) {
+                        if (e.target.tagName !== 'A') {
+                            const link = this.querySelector('.portfolio-details a:not([style*="display: none"])') || this.querySelector('.portfolio-details a');
+                            if (link && link.href) {
+                                window.location.href = link.href;
+                            }
+                        }
+                    });
                 });
             }
         });
