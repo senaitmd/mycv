@@ -1,10 +1,10 @@
 /* Footer styles */
 footer {
-    background-color: var(--primary-dark);
+    background-color: var(--primary-deep);
     color: var(--white);
     text-align: center;
     padding: 2rem;
-    margin-top: 4rem;
+    margin-top: 3rem;
 }
 
 .footer-links {
@@ -20,7 +20,7 @@ footer {
 }
 
 .footer-links a:hover {
-    color: var(--accent-color);
+    color: var(--white);
 }
 
 .copyright {
